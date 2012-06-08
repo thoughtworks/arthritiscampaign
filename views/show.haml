@@ -4,9 +4,25 @@
   %div
     %a.btn.btn-large.btn-primary.petition{ :href => "http://j.mp/GAxy0I" } Sign the petition
   %div
-    %a.btn.btn-large.btn-primary#launch_share_fb{ 'data-toggle' =>"modal", :href =>"#share_facebook"} Share on Facebook
-    %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_twitter_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Twitter
-    %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_tumblr_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Tumblr
+    #fb-root
+      %div{:class => 'fb-like',
+        :'data-href' => "#{photo_url}",
+        :'data-send' => 'false',
+        :'data-width' => '450',
+        :'data-layout' => 'button_count',
+        :'data-show-faces' => 'false' }
+    #twitter
+      %a{:title => 'Share in twitter', 
+        :href => 'https://twitter.com/share', 
+        :class => 'twitter-share-button',
+        :'data-lang' => "fr",
+        :'data-url' => "#{photo_url}",
+        :'data-count' => "none" } Tweet
+    #tumblr
+      %a{:title => 'Share in Tumblr',
+        :href => "http://www.tumblr.com/share/photo?source=#{CGI.escape(photo_url)}&capition=hahaha",                                                                      
+        :style => 'display:inline-block; text-indent:-9999px; overflow:hidden; width:129px; height:20px; background:url("http://platform.tumblr.com/v1/share_2.png") top left no-repeat transparent;' } Share on Tumblr
+
 
 %form{:method => 'get', :action =>"/share/facebook/#{photo_id}"}
   .modal.hide#share_facebook
@@ -18,10 +34,20 @@
       %input{:type => 'textarea',:name => 'message', :value => 'please support Athritis Sociaty'}
     .modal-footer
       %input.btn.btn-primary{ :href => "#", :type => 'submit', :value => 'Share'} 
-
 :javascript
+
   $(document).ready(function() {
     $("#launch_share_fb").click(function(){
       $("#share_facebook").modal('show');
     });
-  });  
+  });
+ 
+  (function(d, s, id) {                                                                                                                                       
+    var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/fr_FR/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk')); 
+  
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
