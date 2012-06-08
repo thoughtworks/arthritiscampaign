@@ -4,6 +4,24 @@
   %div
     %a.btn.btn-large.btn-primary.petition{ :href => "http://j.mp/GAxy0I" } Sign the petition
   %div
-    %a.btn.btn-large.btn-primary{ :href => "/share/facebook/#{photo_id}" } Share on Facebook
+    %a.btn.btn-large.btn-primary#launch_share_fb{ 'data-toggle' =>"modal", :href =>"#share_facebook"} Share on Facebook
     %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_twitter_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Twitter
     %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_tumblr_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Tumblr
+
+%form{:method => 'get', :action =>"/share/facebook/#{photo_id}"}
+  .modal.hide#share_facebook
+    .modal-header
+      %button.close{ :type => "button", 'data-dismiss' =>"modal"}×
+      %h3 Share on FaceBook
+    .modal-body
+      %p message for sharing:
+      %input{:type => 'textarea',:name => 'message', :value => 'please support Athritis Sociaty'}
+    .modal-footer
+      %input.btn.btn-primary{ :href => "#", :type => 'submit', :value => 'Share'} 
+
+:javascript
+  $(document).ready(function() {
+    $("#launch_share_fb").click(function(){
+      $("#share_facebook").modal('show');
+    });
+  });  

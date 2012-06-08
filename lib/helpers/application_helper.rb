@@ -6,8 +6,8 @@ require 'sharing/flickr'
 module Sinatra
   module ApplicationHelper
 
-    def facebook_callback_url(photo_id)
-      'http://' + request.host_with_port + '/callback/facebook/' + photo_id
+    def facebook_callback_url(photo_id, message)
+      'http://' + request.host_with_port + '/callback/facebook/' + photo_id + '/' + message
     end
 
     def share_to_tumblr_url(photo_url)

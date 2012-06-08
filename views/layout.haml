@@ -6,7 +6,9 @@
     %link{ :rel => 'stylesheet', :href => '/stylesheets/bootstrap.min.css', :type => 'text/css' }
     %link{ :rel => 'stylesheet', :href => '/stylesheets/styles.css', :type => 'text/css' }
     %script{ :type => 'text/javascript', :src => '/javascripts/zepto.min.js' }
+    %script{ :type => 'text/javascript', :src => '/javascripts/jquery-1.7.2.min.js' }
     %script{ :type => 'text/javascript', :src => '/javascripts/bootstrap.min.js' }
+    %script{ :type => 'text/javascript', :src => '/javascripts/bootstrap-modal.js' }
   %body.pink
     .wrapper
       - if session[:error]
@@ -29,7 +31,7 @@
           %p.highlight
             Will you add your picture to the global call for love, not war?
       .editor-instructions
-        %iframe.flickr-slideshow{ :src => "http://www.flickr.com/slideShow/index.gne?user_id=63946635@N00&tags=weloveiran", :frameBorder => 0, :scrolling => 'no' }
+        %iframe.flickr-slideshow{ :src => "http://www.flickr.com/slideShow/index.gne?user_id=#{settings.flickr_user_id}&tags=#{settings.compaign}", :frameBorder => 0, :scrolling => 'no' }
         %img.thumbs{ :src => '/images/thumbs.png' }
         %p
           Create and share your photo using the tool from
