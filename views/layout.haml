@@ -11,6 +11,7 @@
     %script{ :type => 'text/javascript', :src => '/javascripts/bootstrap-modal.js' }
     %script{ :type => 'text/javascript', :src => 'http://platform.tumblr.com/v1/share.js'}
     %script{ :type => 'text/javascript', :src => '/javascripts/flickrshow-7.2.min.js'}
+    %script{ :type => 'text/javascript', :src => 'https://maps.googleapis.com/maps/api/js?sensor=false'}
   %body
     .container-fluid#main-container
       .row-fluid#session-info
@@ -38,7 +39,7 @@
           %h2 Flickr Gellery
           #flickr-ss
           %h2 Get on the map!
-          %p map is going here.
+          #map-canvas
 
       .row-fluid.light-shadow.image-editor#content
         .span12.image-editor= yield
@@ -54,3 +55,13 @@
       })();
       flickrshow('flickr-ss', { user: "#{settings.flickr_user_id}", tags: "#{settings.campaign}", autoplay: true, license: '' }); 
 
+      //google map setup
+      var myLatlng = new google.maps.LatLng(49.496675,-102.65625);
+      var myOptions = {
+        zoom: 0,
+        center: myLatlng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      }
+      var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+      var georssLayer = new google.maps.KmlLayer('http://api.flickr.com/services/feeds/geo/?id=#{settings.flickr_user_id}&lang=en-us&format=feed-georss');
+      georssLayer.setMap(map);
