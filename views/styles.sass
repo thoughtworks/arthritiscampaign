@@ -102,6 +102,56 @@ h1, h2
     border: 1px solid #DDD
     max-width: 100%
 
+.controls
+  label
+    background-image: url('/images/thumbs.jpg')
+    background-repeat: no-repeat
+    background-attachment: scroll
+    width: 182px
+    height: 108px
+    display: block
+    float: left
+    cursor: pointer
+    color: transparent
+    margin: 40px 10px 0 0
+    opacity: 0.3
+    &:hover
+      opacity: 0.6
+    &.active
+      opacity: 1
+    input[type='radio']
+      visibility: hidden
+    &.orange
+      background-position: -10px -10px
+    &.purple
+      background-position: -230px -10px
+    &.pink
+      background-position: -450px -10px
+    &.round-pink
+      background: url(/images/banners/pink-round.png) no-repeat scroll top left
+      width: 200px
+      height: 200px
+      margin-top: 0
+#editor-canvas
+  position: relative
+  margin: auto
+#banner
+  position: absolute
+  .banner-image
+    max-height: 200px
+
+.south
+  left: 50%
+  bottom: 5px
+.southeast
+  right: 10px
+  bottom: 10px
+
+#picture
+  img
+    border: 1px solid #DDD
+    max-width: 100%
+
 #share-box
   width: 300px
   height: 20px
