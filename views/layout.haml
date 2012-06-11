@@ -12,37 +12,37 @@
     %script{ :type => 'text/javascript', :src => '/javascripts/bootstrap-modal.js' }
     %script{ :type => 'text/javascript', :src => 'http://platform.tumblr.com/v1/share.js'}
     %script{ :type => 'text/javascript', :src => '/javascripts/flickrshow-7.2.min.js'}
-  %body.pink
-    .wrapper
-      - if session[:error]
-        .alert.alert-error
-          = session[:error]
-      - if session[:success]
-        .alert.alert-success
-          = session[:success]
-      - session.clear
-      .header
-        %h1 Iranians, We Love You!
-        %img#codepink-banner{ :src => '/images/banners/pink-round.png' }
-        .call-to-action
-          %p
-            In March Israeli graphic designer and teacher Ronny Edri posted a picture of himself and his daughter to facebook with the message:
-            %b "Iranians we love you. We will never bomb your country."
-            The
-            %a{ :href => 'http://www.israelovesiran.com/', :target => '_blank' } campaign
-            took off - within hours Iranians sent beautiful images back and messages have been sent from all over the world.
-          %p.highlight
-            Will you add your picture to the global call for love, not war?
-      .editor-instructions
-        #flickr-ss
-        %img.thumbs{ :src => '/images/thumbs.png' }
-        %p
-          Create and share your photo using the tool from
-          %a.codepink{ :href => 'http://www.codepink.org', :target => '_blank' } CODEPINK
-          below and join Alice Walker, Eve Ensler and Gloria Steinem in signing onto a
-          %a{ :href => 'http://j.mp/GAxy0I', :target => '_blank' } petition
-          to say no to war.
-      .image-editor= yield
+  %body
+    .container-fluid#main-container
+      .row-fluid#session-info
+        .span12
+          - if session[:error]
+            .alert.alert-error
+            = session[:error]
+          - if session[:success]
+            .alert.alert-success
+            = session[:success]
+          - session.clear
+      .row-fluid#header
+        .span8.deep-shadow#left-side-header
+          %h1 We Have Arthritis!
+          %p Join The Arthritis Society's special campaign to raise awareness about the impact of the disease on 4.6 million Canadians living with the arthritis.  Arthritis can affect anyone; it affects babies and chidden, as well as people in the prime of their lives. Nearly three of every five people with arthritis are of working age (under 65).
+          %h2 Add your picture to show your support!
+          %p Create and share your photo using the tool below. Your photo will be posted on our Flickr online gallery, and you will also be able to share it on Facebook, Twitter and Tumblr.
+          .row-fluid
+            .span6
+              %img.sample{:src => "/images/arthritis-society.png"}
+            .span6 
+              %img.sample{:src => "/images/arthritis-society.png"}
+          %p Disclaimer TEXT to be decided
+        .span4#right-side-header
+          %h2 Flickr Gellery
+          #flickr-ss
+          %h2 Get on the map!
+          %p map is going here.
+
+      .row-fluid.light-shadow.image-editor#content
+        .span12.image-editor= yield
 
     :javascript
       var _gaq = _gaq || [];
@@ -53,4 +53,5 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-      var fss = new flickrshow('flickr-ss', { user: "#{settings.flickr_user_id}", tags: "#{settings.campaign}", autoplay: true, license: '' });
+      flickrshow('flickr-ss', { user: "#{settings.flickr_user_id}", tags: "#{settings.campaign}", autoplay: true, license: '' }); 
+

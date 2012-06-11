@@ -12,11 +12,10 @@ require 'helpers/url_helper'
 configure do
   enable :sessions
 
-  set :compaign, "arthritiscampaign"
+  set :campaign, "arthritiscampaign"
   set :public_folder, Proc.new { File.join(root, "static") }
 
   set :flickr_api_key, ENV['FLICKR_API_KEY']
-  set :flickr_user_id, ENV['FLICKR_USER_ID']
   set :flickr_user_id, ENV['FLICKR_USER_ID']
   set :flickr_secret, ENV['FLICKR_SECRET']
   set :flickr_access_token, ENV['FLICKR_ACCESS_TOKEN']

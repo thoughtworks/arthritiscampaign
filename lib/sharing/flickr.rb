@@ -10,7 +10,7 @@ module Sharing
     end
 
     def upload(file_name)
-      client.upload_photo file_name, :is_public => true, :title => 'We Have Arthritis!', :tags => settings.compaign 
+      client.upload_photo file_name, :is_public => true, :title => 'We Have Arthritis!', :tags => settings.campaign 
     end
 
     def photo_url(photo_id)
