@@ -17,6 +17,7 @@ configure do
 
   set :flickr_api_key, ENV['FLICKR_API_KEY']
   set :flickr_user_id, ENV['FLICKR_USER_ID']
+  set :flickr_user_id, ENV['FLICKR_USER_ID']
   set :flickr_secret, ENV['FLICKR_SECRET']
   set :flickr_access_token, ENV['FLICKR_ACCESS_TOKEN']
   set :flickr_access_secret, ENV['FLICKR_ACCESS_SECRET']
