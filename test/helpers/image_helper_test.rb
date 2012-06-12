@@ -36,10 +36,10 @@ class ImageHelperTest < Test::Unit::TestCase
     assert_equal false, use_small_logo?(photo, 'banner_path')
   end
 
-  def test_use_small_logo_if_photo_is_round
+  def test_use_small_logo_if_photo_is_small
     any_photo = { :width => 100, :height => 200 }
 
-    assert use_small_logo?(any_photo, 'banner_path_round.png')
+    assert use_small_logo?(any_photo, 'banner_path_small.png')
   end
 
   def test_gravity_to_southeast_if_we_should_use_small_logo
@@ -61,7 +61,7 @@ class ImageHelperTest < Test::Unit::TestCase
 
   def test_gets_maximum_width_for_small_banner
     expected = { 'width' => 27.200000000000003, 'gravity' => 'southeast' }
-    assert_equal expected, max_width_for(85, 100, 'round')
+    assert_equal expected, max_width_for(85, 100, 'small')
   end
 
 end

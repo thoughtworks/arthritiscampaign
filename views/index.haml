@@ -8,18 +8,15 @@
   .color-picker
     %h2.title Pick your message
     .controls
-      %label.pink.active
-        %input{ :type => 'radio', :name => 'color_scheme', :value => 'pink', :checked => 'checked' }
-        Green/Pink
-      %label.purple
-        %input{ :type => 'radio', :name => 'color_scheme', :value => 'purple' }
-        Green/Purple
-      %label.orange
-        %input{ :type => 'radio', :name => 'color_scheme', :value => 'orange' }
-        Green/Orange
-      %label.round-pink
-        %input{ :type => 'radio', :name => 'color_scheme', :value => 'pink-round' }
-        Round/Pink
+      %label.one.active
+        %input{ :type => 'radio', :name => 'color_scheme', :value => 'arthritis-small', :checked => 'checked' }
+        First choice
+      %label.two
+        %input{ :type => 'radio', :name => 'color_scheme', :value => 'arthritis2-small' }
+        Second Choice
+      %label.three
+        %input{ :type => 'radio', :name => 'color_scheme', :value => 'arthritis3-small' }
+        Third Choice
   .generate
     %button.btn.btn-primary.btn-large{ :type => 'submit' } Generate your image!
 %script{ :type => 'text/javascript', :src => '/javascripts/picture-loader.js' }

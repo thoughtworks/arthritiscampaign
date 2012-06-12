@@ -37,7 +37,7 @@ $(function() {
   };
 
   function overlayBannerOnTheImage(sizingInfo, bannerName) {
-    bannerImg = '<img class="banner-image '+bannerName+'" src="/images/banners/'+bannerName+'.png" width="'+sizingInfo.width+'">';
+    bannerImg = '<img class="banner-image '+bannerName+'" src="/images/banners/'+bannerName+'.jpg" width="'+sizingInfo.width+'">';
 
     $('#banner').html(bannerImg);
     $('#banner').attr('class', sizingInfo.gravity);

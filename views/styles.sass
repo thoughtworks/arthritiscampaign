@@ -49,16 +49,13 @@ h1, h2
 
 .controls
   label
-    background-image: url('/images/thumbs.jpg')
-    background-repeat: no-repeat
-    background-attachment: scroll
+    background-size: 182px 140px
     width: 182px
-    height: 108px
-    display: block
-    float: left
+    height: 140px
+    display: inline-block
     cursor: pointer
     color: transparent
-    margin: 40px 10px 0 0
+    margin: 30px 10px 30px 0
     opacity: 0.3
     &:hover
       opacity: 0.6
@@ -66,17 +63,12 @@ h1, h2
       opacity: 1
     input[type='radio']
       visibility: hidden
-    &.orange
-      background-position: -10px -10px
-    &.purple
-      background-position: -230px -10px
-    &.pink
-      background-position: -450px -10px
-    &.round-pink
-      background: url(/images/banners/pink-round.png) no-repeat scroll top left
-      width: 200px
-      height: 200px
-      margin-top: 0
+    &.one
+      background: url(/images/banners/arthritis-small.jpg) no-repeat scroll top left
+    &.two
+      background: url(/images/banners/arthritis2-small.jpg) no-repeat scroll top left
+    &.three
+      background: url(/images/banners/arthritis3-small.jpg) no-repeat scroll top left
 
 #editor-canvas
   position: relative

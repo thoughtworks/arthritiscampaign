@@ -12,12 +12,12 @@ module Sinatra
       user_img
     end
 
-    def add_logo(user_img, color_scheme)
-      banner_path = logo_in(color_scheme)
-      weloveiran_img = MiniMagick::Image.open(banner_path)
-      resize_banner(user_img, weloveiran_img, banner_path)
+    def add_logo(user_img, banner_name)
+      banner_path = logo_in(banner_name)
+      banner_image = MiniMagick::Image.open(banner_path)
+      resize_banner(user_img, banner_image, banner_path)
 
-      result = user_img.composite(weloveiran_img) do |c|
+      result = user_img.composite(banner_image) do |c|
         c.gravity gravity(user_img, banner_path)
       end
 
@@ -36,8 +36,8 @@ module Sinatra
     end
 
     private
-    def logo_in(color_scheme)
-      "static/images/banners/#{color_scheme}.png"
+    def logo_in(banner_name)
+      "static/images/banners/#{banner_name}.jpg"
     end
 
     def resize_banner(image, banner, banner_path)
@@ -57,7 +57,7 @@ module Sinatra
     end
 
     def round?(banner_path)
-      !!(banner_path =~ /round/)
+      !!(banner_path =~ /small/)
     end
 
     def gravity(image, banner_path)
