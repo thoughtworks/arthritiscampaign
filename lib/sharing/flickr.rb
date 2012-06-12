@@ -16,7 +16,7 @@ module Sharing
     end
     
     def set_location(photo_id, latitude, longitude)
-        return if latitude == nil  or latitude.length == 0
+        return #if latitude == nil  or latitude.length == 0
     	client.geo.set_location :photo_id => photo_id, :lat => latitude, :lon => longitude
         puts "location #{latitude}, #{longitude} to photo #{photo_id} is set."
     end 
