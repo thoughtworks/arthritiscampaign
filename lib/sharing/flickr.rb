@@ -10,8 +10,16 @@ module Sharing
     end
 
     def upload(file_name)
-      client.upload_photo file_name, :is_public => true, :title => 'We Have Arthritis!', :tags => settings.campaign 
+      photo_id = client.upload_photo file_name, :is_public => true, :title => 'We Have Arthritis!', :tags => settings.campaign
+      puts "#{file_name} uploaded to flickr." 
+      photo_id
     end
+    
+    def set_location(photo_id, latitude, longitude)
+        return if latitude == nil  or latitude.length == 0
+    	client.geo.set_location :photo_id => photo_id, :lat => latitude, :lon => longitude
+        puts "location #{latitude}, #{longitude} to photo #{photo_id} is set."
+    end 
 
     def photo_url(photo_id)
       info = client.photos.getInfo(:photo_id => photo_id)

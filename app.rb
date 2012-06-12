@@ -8,6 +8,7 @@ require 'helpers/application_helper'
 require 'helpers/image_helper'
 require 'helpers/twitter_helper'
 require 'helpers/url_helper'
+require 'helpers/geo_helper'
 
 configure do
   enable :sessions
@@ -37,11 +38,10 @@ end
 post '/upload_from_mobile' do
   tempfile = params['photo'][:tempfile]
   file_name = tempfile.path
-
   resize(file_name)
-
   photo_id = flickr.upload file_name
-
+  geo = get_geo(request.ip)
+  flickr.set_location photo_id, geo[0], geo[1]
   status(200)
 end
 
@@ -50,17 +50,14 @@ post '/upload' do
     session[:error] = "Please, upload an image"
     redirect '/'
   end
-
   tempfile = params['photo'][:tempfile]
   file_name = tempfile.path
-
   user_img = resize(file_name)
-
   photo = add_logo(user_img, params[:color_scheme])
   photo.write(file_name)
-
   photo_id = flickr.upload file_name
-
+  geo = get_geo(request.ip)
+  flickr.set_location photo_id, geo[0], geo[1]
   redirect "/show/#{photo_id}"
 end
 
