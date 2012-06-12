@@ -11,7 +11,7 @@
     %script{ :type => 'text/javascript', :src => '/javascripts/bootstrap-modal.js' }
     %script{ :type => 'text/javascript', :src => 'http://platform.tumblr.com/v1/share.js'}
     %script{ :type => 'text/javascript', :src => '/javascripts/flickrshow-7.2.min.js'}
-    %script{ :type => 'text/javascript', :src => 'https://maps.googleapis.com/maps/api/js?sensor=false'}
+    %script{ :type => 'text/javascript', :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&sensor=false"}
   %body
     .container-fluid#main-container
       .row-fluid#session-info
