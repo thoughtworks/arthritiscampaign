@@ -2,24 +2,9 @@
   %div
     %img.user-image{ :src => photo_url }
   #share-box
-    #fb-root
-      %div{:class => 'fb-like share-btn',
-        :'data-href' => "#{photo_url}",
-        :'data-send' => 'false',
-        :'data-width' => '50',
-        :'data-layout' => 'button_count',
-        :'data-show-faces' => 'false' }
-    #tumblr.share-btn
-      %a{:title => 'Share in Tumblr',
-        :href => "http://www.tumblr.com/share/photo?source=#{CGI.escape(photo_url)}&capition=none",                                                                      
-        :style => "display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;" } Share on Tumblr
-    #twitter.share-btn
-      %a{:title => 'Share in twitter', 
-        :href => 'https://twitter.com/share', 
-        :class => 'twitter-share-button',
-        :'data-url' => "#{photo_url}",
-        :'data-count' => "none" } Tweet
-
+    %a.btn.btn-large.btn-primary#launch_share_fb{ 'data-toggle' =>"modal", :href =>"#share_facebook"} Share on Facebook
+    %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_twitter_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Twitter
+    %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_tumblr_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Tumblr
 %form{:method => 'get', :action =>"/share/facebook/#{photo_id}"}
   .modal.hide#share_facebook
     .modal-header
