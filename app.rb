@@ -24,7 +24,7 @@ configure do
 
   set :fb_app_id, ENV['FB_APP_ID']
   set :fb_app_secret, ENV['FB_APP_SECRET']
-
+  set :google_api_key, ENV['GOOGLE_API_KEY']
 end
 
 configure :production do
