@@ -5,12 +5,11 @@
   .modal-body.container-fluid
     .row-fluid
       - if session[:sharing_success]
-        .alert.alert-success
-        = session[:sharing_success]
+        .alert.alert-success= session[:sharing_success]
     %img.user-image.row-fluid{ :src => photo_url }
   .modal-footer#share-box
     %center
-      %a.btn.btn-large.btn-primary#launch_share_fb Share on Facebook
+      %a.btn.btn-large.btn-primary#launch_share_fb{:href => "/share/facebook/#{photo_id}"} Share on Facebook
       %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_twitter_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Twitter
       %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_tumblr_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Tumblr
     
@@ -33,9 +32,9 @@
     $("#share-image-container").modal('show');
     
 
-    $("#launch_share_fb").click(function(){
-      $("#share_facebook").modal('show');
-    });
+    //$("#launch_share_fb").click(function(){
+      //$("#share_facebook").modal('show');
+    //});
    
     $('#share-image-container').on('hidden', function () {
       window.location = '/'

@@ -23,6 +23,10 @@ module Sinatra
     def flickr
       @flickr_sharing ||= Sharing::Flickr.new(settings.flickr_api_key, settings.flickr_secret, settings.flickr_access_token, settings.flickr_access_secret)
     end
+    
+    def facebook_message
+      "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://www.goriete.com/page.aspx?pid=6324"
+    end
   end
 
   helpers ApplicationHelper
