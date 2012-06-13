@@ -67,14 +67,16 @@ end
 
 get '/share/facebook/:photo_id' do
   callback_url = facebook_callback_url(params[:photo_id])
+  session[:fb_message] = params[:message]
   redirect facebook.authorization_url(callback_url)
 end
 
 get '/callback/facebook/:photo_id' do
   photo = flickr.photo_url(params[:photo_id])
   callback_url = facebook_callback_url(params[:photo_id])
-  facebook.share_photo(photo, facebook_message, params[:code], callback_url)
+  facebook.share_photo(photo, session[:fb_message], params[:code], callback_url)
   session[:sharing_success] = "Your picture was posted on your Facebook profile."
+  session[:fb_message] = nil
   redirect "/show/#{params[:photo_id]}"
 end
 
