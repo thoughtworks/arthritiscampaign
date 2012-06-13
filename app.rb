@@ -66,7 +66,7 @@ get '/show/:photo_id' do
 end
 
 get '/share/facebook/:photo_id' do
-  callback_url = facebook_callback_url(params[:photo_id], params[:message])
+  callback_url = facebook_callback_url(params[:photo_id], URI.escape(params[:message]))
   redirect facebook.authorization_url(callback_url)
 end
 
