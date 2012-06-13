@@ -35,14 +35,16 @@
             .span6 
               %img.sample{:src => "/images/arthritis-society.png"}
           %p Disclaimer TEXT to be decided
+          %center
+            %a.btn.btn-large.btn-success#upload-photo Upload Your Photo
         .span4#right-side-header
           %h2 Flickr Gallery
           #flickr-ss
           %h2 Get on the map!
           #map-canvas
 
-      .row-fluid.light-shadow.image-editor#content
-        .span12.image-editor= yield
+      .row-fluid#content
+        = yield
       %br
 
     :javascript

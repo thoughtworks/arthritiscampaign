@@ -1,25 +1,40 @@
-.show
-  %div
+.modal.hide#share-image-container
+  .modal-header
+    %button.close{ :type => "button", 'data-dismiss' =>"modal"}×
+    %h3 Share your image
+  .modal-body
     %img.user-image{ :src => photo_url }
-  #share-box
-    %a.btn.btn-large.btn-primary#launch_share_fb{ 'data-toggle' =>"modal", :href =>"#share_facebook"} Share on Facebook
-    %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_twitter_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Twitter
-    %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_tumblr_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Tumblr
+  .modal-footer#share-box
+    %center
+      %a.btn.btn-large.btn-primary#launch_share_fb Share on Facebook
+      %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_twitter_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Twitter
+      %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_tumblr_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Tumblr
+    
 %form{:method => 'get', :action =>"/share/facebook/#{photo_id}"}
   .modal.hide#share_facebook
     .modal-header
       %button.close{ :type => "button", 'data-dismiss' =>"modal"}×
-      %h3 Share on FaceBook
+      %center
+        %h3 Share on FaceBook
     .modal-body
-      %p message for sharing:
-      %input{:type => 'textarea',:name => 'message', :value => 'please support Athritis Sociaty'}
+      %p Please add message for sharing the image on Facebook:
+      %input#facebook-message{:type => 'textarea',:name => 'message', :size => 35, :value => 'please support Athritis Sociaty'}
     .modal-footer
-      %input.btn.btn-primary{ :href => "#", :type => 'submit', :value => 'Share'} 
+      %input.btn.btn-primary{ :href => "#", :type => 'submit', :value => 'Continue'} 
+
 
 :javascript
   $(document).ready(function() {
+    //$("#share-image-container").modal({backdrop: false, show: false});
+    $("#share-image-container").modal('show');
+    
+
     $("#launch_share_fb").click(function(){
       $("#share_facebook").modal('show');
+    });
+   
+    $('#share-image-container').on('hidden', function () {
+      window.location = '/'
     });
   });
  

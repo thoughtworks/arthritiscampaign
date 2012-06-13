@@ -4,19 +4,11 @@ body
   max-width: 940px
   margin: 0 auto
 
-h1, h2, h3
+h1, h2, h3, h4
   color: #D2B48C
 
-#content
-  text-align: center
-  border: 1px solid #EEEEEE
-  border-radius: 6px 6px 6px 6px
-  margin:
-    top: 20px
-    botton: 10px
-  padding:
-    top: 20px
-    bottom: 10px
+#share-image-container, #upload-photo-container
+  text-align: center   
 
 #left-side-header
   min-height: 650px
@@ -49,17 +41,20 @@ h1, h2, h3
 
 .generate
   display: none
-  clear: both
+  padding: 0px
+
+#generate-btn
+  margin: 5px
 
 .controls
   label
-    background-size: 182px 140px
-    width: 182px
-    height: 140px
+    background-size: 108px 82px
+    width: 108px
+    height: 82px
     display: inline-block
     cursor: pointer
     color: transparent
-    margin: 30px 10px 30px 0
+    margin: 3px
     opacity: 0.3
     &:hover
       opacity: 0.6
@@ -68,21 +63,20 @@ h1, h2, h3
     input[type='radio']
       visibility: hidden
     &.one
-      background: url(/images/banners/arthritis-small.jpg) no-repeat scroll top left
+      background: url(/images/banners/banner1-small.png) no-repeat scroll top left
     &.two
-      background: url(/images/banners/arthritis2-small.jpg) no-repeat scroll top left
+      background: url(/images/banners/banner2-small.png) no-repeat scroll top left
     &.three
-      background: url(/images/banners/arthritis3-small.jpg) no-repeat scroll top left
+      background: url(/images/banners/banner3-small.png) no-repeat scroll top left
 
 #editor-canvas
   position: relative
   margin: auto
-  max-width: 810px
+  max-width: 370px
 
 #banner
   position: absolute
   .banner-image
-    max-height: 200px
 
 .south
   left: 50%
@@ -108,3 +102,6 @@ h1, h2, h3
   width: 100%
   height: 290px
 
+#facebook-message
+  width: 100%
+  margin: auto  
