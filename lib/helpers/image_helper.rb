@@ -47,7 +47,7 @@ module Sinatra
 
     def define_max_size(image, banner_path)
       max_size = image[:width] * 0.8
-      max_size *= 0.4 if use_small_logo?(image, banner_path)
+      max_size *= 0.6 if use_small_logo?(image, banner_path)
       max_size
     end
 
