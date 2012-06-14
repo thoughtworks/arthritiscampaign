@@ -53,7 +53,7 @@ post '/upload' do
   tempfile = params['photo'][:tempfile]
   file_name = tempfile.path
   user_img = resize(file_name)
-  photo = add_logo(user_img, params[:color_scheme])
+  photo = add_logo(user_img, params[:banner])
   photo.write(file_name)
   photo_id = flickr.upload file_name
   geo = get_geo(request.ip)

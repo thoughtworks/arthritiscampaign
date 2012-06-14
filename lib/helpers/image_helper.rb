@@ -37,7 +37,7 @@ module Sinatra
 
     private
     def logo_in(banner_name)
-      "static/images/banners/#{banner_name}.jpg"
+      "static/images/banners/#{banner_name}.png"
     end
 
     def resize_banner(image, banner, banner_path)
