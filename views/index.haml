@@ -3,13 +3,13 @@
     .modal-header
       %button.close{ :type => "button", 'data-dismiss' =>"modal"}×
       %h3  Upload your photo
-    .modal-body.container-fluid
-      .choose-picture.row-fluid
+    .modal-body
+      .choose-picture
         %input#choose-picture{ :type => 'file', :name => 'photo'}
         #editor-canvas
           #banner
           #picture
-      .color-picker.row-fluid
+      .color-picker
         %h4.title Pick your message
         .controls
           %label.one.active
@@ -19,7 +19,7 @@
             %input{ :type => 'radio', :name => 'color_scheme', :value => 'arthritis2-small' }
             Second Choice
           %label.three
-            %input{ :type => 'radio', :name => 'color_scheme', :value => 'arthritis3-small' }
+            %input{:type => 'radio', :name => 'color_scheme', :value => 'arthritis3-small' }
             Third Choice
     .modal-footer.generate
       %center

@@ -1,3 +1,4 @@
+='<!DOCTYPE html>'
 %html
   %head
     %title We Have Arthritis &mdash; Join the campaign
@@ -13,26 +14,25 @@
     %script{ :type => 'text/javascript', :src => '/javascripts/flickrshow-7.2.min.js'}
     %script{ :type => 'text/javascript', :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&sensor=false"}
   %body
-    .container-fluid#main-container
-      .row-fluid#session-info
-        .span12
-          - if session[:error]
-            .alert.alert-error
+    .container#main-container
+      #session-info
+        - if session[:error]
+          .alert.alert-error
             = session[:error]
-          - if session[:success]
-            .alert.alert-success
+        - if session[:success]
+          .alert.alert-success
             = session[:success]
-          - session.clear
-      .row-fluid#header
+        - session.clear
+      .row#header
         .span8#left-side-header
           %h1 We Have Arthritis!
           %p Join The Arthritis Society's special campaign to raise awareness about the impact of the disease on 4.6 million Canadians living with the arthritis.  Arthritis can affect anyone; it affects babies and chidden, as well as people in the prime of their lives. Nearly three of every five people with arthritis are of working age (under 65).
           %h2 Add your picture to show your support!
           %p Create and share your photo using the tool below. Your photo will be posted on our Flickr online gallery, and you will also be able to share it on Facebook, Twitter and Tumblr.
-          .row-fluid
-            .span6
+          .row
+            .span3
               %img.sample{:src => "/images/arthritis-society.png"}
-            .span6 
+            .span3 
               %img.sample{:src => "/images/arthritis-society.png"}
           %p Disclaimer TEXT to be decided
           %center
@@ -43,7 +43,7 @@
           %h2 Get on the map!
           #map-canvas
 
-      .row-fluid#content
+      #content
         = yield
       %br
 

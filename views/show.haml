@@ -2,10 +2,9 @@
   .modal-header
     %button.close{ :type => "button", 'data-dismiss' =>"modal"}×
     %h3 Share your image
-  .modal-body.container-fluid
-    .row-fluid
-      - if session[:sharing_success]
-        .alert.alert-success= session[:sharing_success]
+  .modal-body
+    - if session[:sharing_success]
+      .alert.alert-success= session[:sharing_success]
     %img.user-image.row-fluid{ :src => photo_url }
   .modal-footer#share-box
     %center
