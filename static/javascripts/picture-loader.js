@@ -1,12 +1,10 @@
 $(function() {
-  function handleFileSelect(evt) {
+  function handleFileSelect(file) {
     if (!(window.File && window.FileReader && window.FileList && window.Blob)) {
       // File APIs are not supported
       return;
     }
-
-    var file = evt.target.files[0],
-        reader = new FileReader();
+    reader = new FileReader();
 
     reader.onload = function (e) {
         var picture = new Image();
@@ -60,15 +58,29 @@ $(function() {
     updateBanner(bannerName);
   });
   $('input#choose-picture').on("change", function (evt) {
-    $('#editor-canvas').css('width', '100%');
-    if (!evt.target.files[0].type.match('image.*')) {
+    //$('#editor-canvas').css('width', '100%');
+    var filePath = null;
+    var noImage = false;
+    if(evt.target.files == undefined){//IE
+      filePath = evt.target.value;
+      noImage = filePath.match(".*.([gG][iI][fF]|[jJ][pP][gG]|[jJ][pP][eE][gG]|[bB][mM][pP])$") == null;
+    }
+    else{
+      filePath = evt.target.files[0];
+      noImage = evt.target.files[0].type.match('image.*') == null;
+    }
+    if (noImage) {
       alert("Please, choose an image.");
+      $('#generate-btn').attr("disabled", "disabled");
+      $('#picture').html("");
+      $('#banner').html("");
+      $("div.color-picker").hide();
+      $("div.generate").hide();
       return;
     }
-
-    handleFileSelect(evt);
-    $('div.color-picker').show();
-    $('div.generate').show();
+    handleFileSelect(filePath);
+    $('#generate-btn').removeAttr("disabled");
+    $("div.color-picker").show();
+    $("div.generate").show();
   });
-
 });

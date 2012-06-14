@@ -27,8 +27,6 @@ h1, h2, h3, h4
   display: none
   padding: 0px
 
-#generate-btn
-  margin: 5px
 
 .controls
   label
@@ -40,6 +38,7 @@ h1, h2, h3, h4
     color: transparent
     margin: 3px
     opacity: 0.3
+    vertical-align: middle
     &:hover
       opacity: 0.6
     &.active
@@ -74,10 +73,6 @@ h1, h2, h3, h4
     border: 1px solid #DDD
     max-width: 100%
 
-#share-box
-  margin: 15px auto
-
-
 #flickr-ss
   height: 290px
 
@@ -87,6 +82,11 @@ h1, h2, h3, h4
 
 #facebook-message
   width: 100%
-  margin: auto 
+  margin: auto
+
+#generate-btn
+  margin: 5px
+  &[disabled]
+    background-color: #E6E6E6
 
 

@@ -1,5 +1,5 @@
-.modal.hide#upload-photo-container
-  %form{ :action => '/upload', :method => 'post', :enctype => "multipart/form-data" }
+%form{ :action => '/upload', :method => 'post', :enctype => "multipart/form-data" }
+  .modal.hide#upload-photo-container
     .modal-header
       %button.close{ :type => "button", 'data-dismiss' =>"modal"}×
       %h3  Upload your photo
@@ -23,7 +23,7 @@
             Third Choice
     .modal-footer.generate
       %center
-        %button.btn.btn-primary.btn-large#generate-btn{ :type => 'submit' } Generate your image!
+        %button.btn.btn-primary.btn-large#generate-btn{ :type => 'submit', :disabled => "disabled" } Generate your image!
 %script{ :type => 'text/javascript', :src => '/javascripts/picture-loader.js' }
 :javascript
   $(document).ready(function() {
