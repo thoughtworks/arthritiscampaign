@@ -13,7 +13,7 @@
     %script{ :type => 'text/javascript', :src => '/javascripts/flickrshow-7.2.min.js'}
     %script{ :type => 'text/javascript', :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&sensor=false"}
   %body
-    .container#main-container
+    #main-container
       #session-info
         - if session[:error]
           .alert.alert-error
@@ -22,20 +22,21 @@
           .alert.alert-success
             = session[:success]
         - session.clear
-      .row#header
+      .row-fluid#header
         .span8#left-side-header
-          %h1 We Have Arthritis!
-          %p Join The Arthritis Society's special campaign to raise awareness about the impact of the disease on 4.6 million Canadians living with the arthritis.  Arthritis can affect anyone; it affects babies and chidden, as well as people in the prime of their lives. Nearly three of every five people with arthritis are of working age (under 65).
-          %h2 Add your picture to show your support!
-          %p Create and share your photo using the tool below. Your photo will be posted on our Flickr online gallery, and you will also be able to share it on Facebook, Twitter and Tumblr.
-          .row
-            .span3
-              %img.sample{:src => "/images/arthritis-society.png"}
-            .span3 
-              %img.sample{:src => "/images/arthritis-society.png"}
-          %p Disclaimer TEXT to be decided
-          %center
-            %a.btn.btn-large.btn-success#upload-photo Upload Your Photo
+          #left-container
+            %h1 We Have Arthritis!
+            %p Join The Arthritis Society's special campaign to raise awareness about the impact of the disease on 4.6 million Canadians living with the arthritis.  Arthritis can affect anyone; it affects babies and chidden, as well as people in the prime of their lives. Nearly three of every five people with arthritis are of working age (under 65).
+            %h2 Add your picture to show your support!
+            %p Create and share your photo using the tool below. Your photo will be posted on our Flickr online gallery, and you will also be able to share it on Facebook, Twitter and Tumblr.
+            .row-fluid
+              .span3
+                %img.sample{:src => "/images/arthritis-society.png"}
+              .span3 
+                %img.sample{:src => "/images/arthritis-society.png"}
+            %p Disclaimer TEXT to be decided
+            %center
+              %a.btn.btn-large.btn-success#upload-photo Upload Your Photo
         .span4.deep-shadow#right-side-header
           %h2 Flickr Gallery
           #flickr-ss
