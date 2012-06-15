@@ -30,5 +30,12 @@
     $("#upload-photo").click(function(){
       $("#upload-photo-container").modal('show');
     });
+    
+    $("#agree-check").change(function(){
+      if(this.checked)
+        $("#upload-photo").removeAttr("disabled");
+      else
+        $("#upload-photo").attr("disabled", "disabled");
+    });
   });
 

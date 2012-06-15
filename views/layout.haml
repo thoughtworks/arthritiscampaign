@@ -23,21 +23,27 @@
           .alert.alert-success
             = session[:success]
         - session.clear
-      .row-fluid#header
+      .row#header
         .span8#left-side-header
           #left-container
             %h1 We Have Arthritis!
             %p Join The Arthritis Society's special campaign to raise awareness about the impact of the disease on 4.6 million Canadians living with the arthritis.  Arthritis can affect anyone; it affects babies and chidden, as well as people in the prime of their lives. Nearly three of every five people with arthritis are of working age (under 65).
             %h2 Add your picture to show your support!
             %p Create and share your photo using the tool below. Your photo will be posted on our Flickr online gallery, and you will also be able to share it on Facebook, Twitter and Tumblr.
-            .row-fluid
+            .row
               .span3
                 %img.sample{:src => "/images/arthritis-society.png"}
               .span3 
                 %img.sample{:src => "/images/arthritis-society.png"}
-            %p Disclaimer TEXT to be decided
+            .row#disclaimer
+              .span4
+                %p I agree to allow The Arthritis Society to use my photograph as mentioned in the statement linked to this checkbox:*
+                %p.hint * required fields
+              .span3#agree-check-container
+                %input#agree-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check"}
+                %label#agree-title{ :for => "agree-check"} User permission release
             %center
-              %a.btn.btn-large.btn-success#upload-photo Upload Your Photo
+              %button.btn.btn-large.btn-success#upload-photo{:disabled => 'disabled'} Upload Your Photo
         .span4.deep-shadow#right-side-header
           %h2 Flickr Gallery
           #flickr-ss
@@ -57,6 +63,8 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
+      
+      //slide show
       flickrshow('flickr-ss', { user: "#{settings.flickr_user_id}", tags: "#{settings.campaign}", autoplay: true, license: '' }); 
 
       //google map setup
