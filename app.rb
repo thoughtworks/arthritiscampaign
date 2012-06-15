@@ -32,7 +32,7 @@ configure :production do
 end
 
 after do
-  response.headers['X-Frame-Options'] = 'SAMEORIGIN' 
+  response.headers['X-Frame-Options'] = 'GOFORIT' 
 end
 
 get '/' do
