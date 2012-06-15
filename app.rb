@@ -31,6 +31,10 @@ configure :production do
  # require 'newrelic_rpm'
 end
 
+after do
+  response.headers['X-Frame-Options'] = 'SAMEORIGIN' 
+end
+
 get '/' do
   haml :index
 end
