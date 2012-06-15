@@ -30,16 +30,16 @@
             %p Join The Arthritis Society's special campaign to raise awareness about the impact of the disease on 4.6 million Canadians living with the arthritis.  Arthritis can affect anyone; it affects babies and chidden, as well as people in the prime of their lives. Nearly three of every five people with arthritis are of working age (under 65).
             %h2 Add your picture to show your support!
             %p Create and share your photo using the tool below. Your photo will be posted on our Flickr online gallery, and you will also be able to share it on Facebook, Twitter and Tumblr.
-            #sample-images
+            #sample-images.row
               %img.sample{:src => "/images/arthritis-society.png"}
-            #disclaimer
+            #disclaimer.row
               #disclaimer-description
                 %p I agree to allow The Arthritis Society to use my photograph as mentioned in the statement linked to this checkbox:*
                 %p.hint * required fields
               #agree-check-container
                 %input#agree-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check"}
                 %a#agree-doc{:href => "/doc/PermissionIsRequired.doc"} User permission release
-            %center
+            %center.row
               %button.btn.btn-large.btn-success#upload-photo{:disabled => 'disabled'} Upload Your Photo
         .span6.deep-shadow#right-side-header
           %h2 Flickr Gallery
