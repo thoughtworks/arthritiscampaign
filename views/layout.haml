@@ -23,8 +23,8 @@
           .alert.alert-success
             = session[:success]
         - session.clear
-      .row#header
-        .span6#left-side-header
+      #header
+        #left-side-header
           #left-container
             %h1 We Have Arthritis!
             %p Join The Arthritis Society's special campaign to raise awareness about the impact of the disease on 4.6 million Canadians living with the arthritis.  Arthritis can affect anyone; it affects babies and chidden, as well as people in the prime of their lives. Nearly three of every five people with arthritis are of working age (under 65).
@@ -32,11 +32,11 @@
             %p Create and share your photo using the tool below. Your photo will be posted on our Flickr online gallery, and you will also be able to share it on Facebook, Twitter and Tumblr.
             #sample-images
               %img.sample{:src => "/images/arthritis-society.png"}
-            .row#disclaimer
-              .span4
+            #disclaimer
+              #disclaimer-description
                 %p I agree to allow The Arthritis Society to use my photograph as mentioned in the statement linked to this checkbox:*
                 %p.hint * required fields
-              .span2#agree-check-container
+              #agree-check-container
                 %input#agree-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check"}
                 %a#agree-doc{:href => "/doc/PermissionIsRequired.doc"} User permission release
             %center
