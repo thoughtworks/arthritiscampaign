@@ -24,27 +24,24 @@
             = session[:success]
         - session.clear
       .row#header
-        .span8#left-side-header
+        .span6#left-side-header
           #left-container
             %h1 We Have Arthritis!
             %p Join The Arthritis Society's special campaign to raise awareness about the impact of the disease on 4.6 million Canadians living with the arthritis.  Arthritis can affect anyone; it affects babies and chidden, as well as people in the prime of their lives. Nearly three of every five people with arthritis are of working age (under 65).
             %h2 Add your picture to show your support!
             %p Create and share your photo using the tool below. Your photo will be posted on our Flickr online gallery, and you will also be able to share it on Facebook, Twitter and Tumblr.
-            .row
-              .span3
-                %img.sample{:src => "/images/arthritis-society.png"}
-              .span3 
-                %img.sample{:src => "/images/arthritis-society.png"}
+            #sample-images
+              %img.sample{:src => "/images/arthritis-society.png"}
             .row#disclaimer
               .span4
                 %p I agree to allow The Arthritis Society to use my photograph as mentioned in the statement linked to this checkbox:*
                 %p.hint * required fields
-              .span3#agree-check-container
+              .span2#agree-check-container
                 %input#agree-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check"}
                 %label#agree-title{ :for => "agree-check"} User permission release
             %center
               %button.btn.btn-large.btn-success#upload-photo{:disabled => 'disabled'} Upload Your Photo
-        .span4.deep-shadow#right-side-header
+        .span6.deep-shadow#right-side-header
           %h2 Flickr Gallery
           #flickr-ss
           %h2 Get on the map!
