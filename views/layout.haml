@@ -42,11 +42,16 @@
                 %a#agree-doc{:href => "/doc/PermissionIsRequired.doc", 'href-fr' => "/doc/PermissionIsRequired-fr.doc", 'data-localize' => 'user_permission_release'} User permission release
             %center.clear
               %button.btn.btn-large.btn-primary#upload-photo{:disabled => 'disabled', 'data-localize' => 'upload_your_photo'} Upload Your Photo
+            %a#view-manifesto{ :href => '/images/manifesto.jpeg', 'href-fr' => '/doc/Manifesto_French.pdf'}
+              %h2{'data-localize' => 'view_manifesto'}View Our Manifesto
+              %img{'data-localize' => 'maifesto_image', :src => "/images/view-manifesto.jpeg"}
         .deep-shadow#right-side-header
           %h2{ 'data-localize' => 'flickr_gallery'}Flickr Gallery
           #flickr-ss
           %h2{ 'data-localize' => 'get_on_the_map'}Get on the map!
           #map-canvas
+          %h2{ 'data-localize' => 'watch_our_video'}Watch Our Video
+          %iframe#video{ :src => "http://player.vimeo.com/video/42697821", 'src-fr' => "http://player.vimeo.com/video/42697820", :height => "250"}
 
       #content
         = yield
@@ -67,10 +72,10 @@
         language = "#{settings.language}";
         $("[data-localize]").localize("app", { language: language, pathPrefix:"/localization" ,skipLanguage: /^en/ });
         
-        //user permission release url
         if(language == 'fr'){
-          var new_url = $("#agree-doc").attr("href-fr");
-          $("#agree-doc").attr("href", new_url);
+          $("#agree-doc").attr("href",  $("#agree-doc").attr("href-fr"));
+          $("#view-manifesto").attr("href",  $("#view-manifesto").attr("href-fr"));
+          $("#video").attr("src", $("#video").attr("src-fr"));
         }
       });
      
