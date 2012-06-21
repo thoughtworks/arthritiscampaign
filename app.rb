@@ -33,11 +33,15 @@ configure :production do
 end
 
 before do
-  set :language, params['language'] || 'en'
+  language =  params['language'] || request.cookies['userLanguage'] || 'en'
+    set :language, language
 end
 
 after do
   response.headers['X-Frame-Options'] = 'GOFORIT' 
+  response.set_cookie("userLanguage", :value => settings.language,
+                    :expires => Time.new + 60*60*24)
+
 end
 
 get '/' do

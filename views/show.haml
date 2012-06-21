@@ -1,28 +1,28 @@
 .modal.hide#share-image-container
   .modal-header
     %button.close{ :type => "button", 'data-dismiss' =>"modal"}×
-    %h3 Share your image
+    %h3{ 'data-localize' => 'share_your_image'} Share your image
   .modal-body
     - if session[:sharing_success]
       .alert.alert-success= session[:sharing_success]
     %img.user-image.row-fluid{ :src => photo_url }
   .modal-footer#share-box
     %center
-      %a.btn.btn-large.btn-primary#launch_share_fb Share on Facebook
-      %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_twitter_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Twitter
-      %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_tumblr_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')" } Share on Tumblr
+      %a.btn.btn-large.btn-primary#launch_share_fb{'data-localize' => 'share_on_facebook'} Share on Facebook
+      %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_twitter_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')", 'data-localize' => 'share_on_twitter' } Share on Twitter
+      %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_tumblr_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')", 'data-localize' => 'share_on_tumblr' } Share on Tumblr
     
 %form{:method => 'get', :action =>"/share/facebook/#{photo_id}"}
   .modal.hide#share_facebook
     .modal-header
       %button.close{ :type => "button", 'data-dismiss' =>"modal"}×
       %center
-        %h3 Share on FaceBook
+        %h3{'data-localize' => 'share_on_facebook'}  Share on Facebook
     .modal-body
-      %p Please add message for sharing the image on Facebook:
-      %textarea#facebook-message{:name => 'message', :col => 35, :row => 3}Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://www.goriete.com/page.aspx?pid=6324
+      %p{'data-localize' => 'please_add_message_for_sharing_'}  Please add message for sharing the image on Facebook:
+      %textarea#facebook-message{:name => 'message', :col => 35, :row => 3, 'data-localize' => 'please_support_million_canadians'}Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://www.goriete.com/page.aspx?pid=6324
     .modal-footer
-      %input.btn.btn-primary{ :href => "#", :type => 'submit', :value => 'Continue'} 
+      %input.btn.btn-primary{ :href => "#", :type => 'submit', :value => 'Continue', 'data-localize' => 'continue'} 
 
 
 :javascript

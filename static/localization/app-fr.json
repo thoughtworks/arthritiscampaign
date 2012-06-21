@@ -9,5 +9,14 @@
   "required_fields": "* Champs obligatoires",
   "upload_your_photo": "Téléchargez votre photo",
   "flickr_gallery": "Galerie Flickr",
-  "get_on_the_map": "Obtenez sur la carte!"
+  "get_on_the_map": "Obtenez sur la carte!",
+  "pick_your_message": "Choisissez votre message",
+  "generate_your_image": "Générez votre image!",
+  "share_your_image": "Partagez votre image",
+  "share_on_facebook": "Partager sur Facebook",
+  "share_on_twitter": "Partager sur Twitter", 
+  "share_on_tumblr": "Partager sur Tumblr",
+  "please_add_message_for_sharing_": "S'il vous plaît ajouter un message pour le partage de l'image sur Facebook:",
+  "please_support_million_canadians": "S'il vous plaît soutenir 4,6 millions de Canadiens vivant avec l'arthrite! Regardez la vidéo et partager l'infographie! http://www.goriete.com/page.aspx?pid=6324",
+  "continue": "continuer"
 }
