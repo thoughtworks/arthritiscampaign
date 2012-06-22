@@ -46,13 +46,14 @@
               %h2{'data-localize' => 'view_our_manifesto'}View Our Manifesto
               %center
                 %img{'data-localize' => 'view_manifesto_image', :src => "/images/view-manifesto.jpeg"}
-        .deep-shadow#right-side-header
-          %h2{ 'data-localize' => 'flickr_gallery'}Flickr Gallery
-          #flickr-ss
-          %h2{ 'data-localize' => 'get_on_the_map'}Get on the map!
-          #map-canvas
-          %h2{ 'data-localize' => 'watch_our_video'}Watch Our Video
-          %iframe#video{ :src => "http://player.vimeo.com/video/42697821", 'src-fr' => "http://player.vimeo.com/video/42697820", :height => "250"}
+        #right-side-header
+          #right-container
+            %h2{ 'data-localize' => 'flickr_gallery'}Flickr Gallery
+            #flickr-ss
+            %h2{ 'data-localize' => 'get_on_the_map'}Get on the map!
+            #map-canvas
+            %h2{ 'data-localize' => 'watch_our_video'}Watch Our Video
+            %iframe#video{ :src => "http://player.vimeo.com/video/42697821", 'src-fr' => "http://player.vimeo.com/video/42697820", :height => "250"}
 
       #content
         = yield

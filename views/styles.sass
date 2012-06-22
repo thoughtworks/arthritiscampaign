@@ -1,7 +1,7 @@
 body
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
   background-color: white
-  max-width: 920px
+  max-width: 686px
 
 h1, h2, h3, h4
   color: #AFA48E
@@ -9,10 +9,17 @@ h1, h2, h3, h4
 #share-image-container, #upload-photo-container
   text-align: center   
 
+/*padding-left 1px is used to align the shadow image to shadow-bottom image */
 #right-side-header
-  padding-left: 20px
   width: 45%
+  height: 975px
   float: left
+  padding-left: 1px 
+  background: url(/images/sidebarshadow-bottom.png) no-repeat scroll bottom left
+
+#right-container
+  padding-left: 20px
+  background: url(/images/sidebarshadow-756.png) no-repeat scroll top left
 
 #left-side-header
   width: 45%
@@ -22,10 +29,6 @@ h1, h2, h3, h4
 #left-container
   margin: 0px 5px 5px 5px
   
-.deep-shadow
-  background: url(/images/shadow-edge.png) no-repeat scroll top left
- 
-
 .color-picker
   display: none
 
