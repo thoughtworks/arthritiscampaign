@@ -32,20 +32,20 @@
             %h2{'data-localize' => 'add_picture_to_show_support_'}Add your picture to show your support!
             %p{'data-localize' => 'create_and_share_photo_'}Create and share your photo using the tool below. Your photo will be posted on our Flickr online gallery, and you will also be able to share it on Facebook, Twitter and Tumblr.
             #sample-images.clear
-              %img.sample{:src => "/images/arthritis-society.png", 'data-localize' => 'arthritis_society_png'}
+              %img.sample{:src => "/images/arthritis-society#{settings.language_suffix}.png"}
             #disclaimer.clear
               #disclaimer-description
                 %p{'data-localize' =>'i_agree_to_allow_'}I agree to allow The Arthritis Society to use my photograph as mentioned in the statement linked to this checkbox:*
                 %p.hint{ 'data-localize' => 'required_fields'}* required fields
               #agree-check-container
                 %input#agree-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check"}
-                %a#agree-doc{:href => "/doc/PermissionIsRequired.doc", 'href-fr' => "/doc/PermissionIsRequired-fr.doc", 'data-localize' => 'user_permission_release'} User permission release
+                %a#agree-doc{:href => "/doc/PermissionIsRequired#{settings.language_suffix}.doc", 'data-localize' => 'user_permission_release'} User permission release
             %center.clear
               %button.btn.btn-large.btn-primary#upload-photo{:disabled => 'disabled', 'data-localize' => 'upload_your_photo'} Upload Your Photo
-            %a#view-manifesto{ :href => '/images/manifesto.jpeg', 'href-fr' => '/doc/Manifesto_French.pdf'}
+            %a#view-manifesto{ :href => "/doc/manifesto#{settings.language_suffix}.pdf"}
               %h2{'data-localize' => 'view_our_manifesto'}View Our Manifesto
               %center
-                %img{'data-localize' => 'view_manifesto_image', :src => "/images/view-manifesto.jpeg"}
+                %img{:src => "/images/view-manifesto#{settings.language_suffix}.png"}
         #right-side-header
           #right-container
             %h2{ 'data-localize' => 'flickr_gallery'}Flickr Gallery
@@ -75,8 +75,6 @@
         $("[data-localize]").localize("app", { language: language, pathPrefix:"/localization" ,skipLanguage: /^en/ });
         
         if(language == 'fr'){
-          $("#agree-doc").attr("href",  $("#agree-doc").attr("href-fr"));
-          $("#view-manifesto").attr("href",  $("#view-manifesto").attr("href-fr"));
           $("#video").attr("src", $("#video").attr("src-fr"));
         }
       });
