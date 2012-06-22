@@ -6,62 +6,51 @@ require 'mocha'
 class ImageHelperTest < Test::Unit::TestCase
   include Sinatra::ImageHelper
 
-  def test_use_small_logo_if_photo_is_a_square
+  def test_use_middle_log_if_photo_is_a_square
     photo = { :width => 500, :height => 500 }
 
-    assert use_small_logo?(photo, 'banner_path')
+    assert_equal define_max_size(photo, 'banner_path'), 240
   end
 
-  def test_use_small_logo_if_photo_is_landscape
+  def test_use_middle_logr_if_photo_i_landscape
     photo = { :width => 200, :height => 100 }
 
-    assert use_small_logo?(photo, 'banner_path')
+    assert_equal define_max_size(photo, 'banner_path'), 96
   end
 
-  def test_use_small_logo_if_photo_is_close_to_a_square
-    photo = { :width => 86, :height => 100 }
-
-    assert use_small_logo?(photo, 'banner_path')
-  end
-
+ 
   def test_use_big_logo_if_photo_is_portrait
     photo = { :width => 100, :height => 200 }
 
-    assert_equal false, use_small_logo?(photo, 'banner_path')
+    assert_equal define_max_size(photo, 'banner_path'), 80
   end
 
-  def test_use_big_logo_if_photo_is_close_to_a_portrait
-    photo = { :width => 85, :height => 100 }
-
-    assert_equal false, use_small_logo?(photo, 'banner_path')
-  end
-
+  
   def test_use_small_logo_if_photo_is_small
-    any_photo = { :width => 100, :height => 200 }
+    photo = { :width => 100, :height => 100 }
 
-    assert use_small_logo?(any_photo, 'banner_path_small.png')
+    assert_equal define_max_size(photo, 'banner_small_path'), 24
   end
 
-  def test_gravity_to_southeast_if_we_should_use_small_logo
-    stubs(:use_small_logo?).returns(true)
+  def test_gravity_to_southeast_if_banner_is_small
+    photo = { :width => 200, :height => 100 }
 
-    assert_equal "Southeast", gravity(:image, :banner_path)
+    assert_equal "Southeast", gravity(photo, 'banner_small_path')
   end
 
-  def test_gravity_to_south_if_we_should_use_big_logo
-    stubs(:use_small_logo?).returns(false)
+  def test_gravity_to_southeast_if_image_is_lanscape
+    photo = { :width => 200, :height => 100 }
 
-    assert_equal "South", gravity(:image, :banner_path)
+    assert_equal "Southeast", gravity(photo, 'banner_small_path')
   end
 
-  def test_gets_maximum_width_for_normal_banner
-    expected = { 'width' => 68, 'gravity' => 'south' }
-    assert_equal expected, max_width_for(85, 100, 'pink')
+
+  def test_gravity_to_south_if_image_is_portait
+    photo = { :width => 200, :height => 400 }
+
+    assert_equal "South", gravity(photo, 'banner_path')
+
   end
 
-  def test_gets_maximum_width_for_small_banner
-    expected = { 'width' => 40.8, 'gravity' => 'southeast' }
-    assert_equal expected, max_width_for(85, 100, 'small')
-  end
-
+ 
 end
