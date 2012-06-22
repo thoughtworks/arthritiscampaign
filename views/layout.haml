@@ -43,8 +43,9 @@
             %center.clear
               %button.btn.btn-large.btn-primary#upload-photo{:disabled => 'disabled', 'data-localize' => 'upload_your_photo'} Upload Your Photo
             %a#view-manifesto{ :href => '/images/manifesto.jpeg', 'href-fr' => '/doc/Manifesto_French.pdf'}
-              %h2{'data-localize' => 'view_manifesto'}View Our Manifesto
-              %img{'data-localize' => 'maifesto_image', :src => "/images/view-manifesto.jpeg"}
+              %h2{'data-localize' => 'view_our_manifesto'}View Our Manifesto
+              %center
+                %img{'data-localize' => 'view_manifesto_image', :src => "/images/view-manifesto.jpeg"}
         .deep-shadow#right-side-header
           %h2{ 'data-localize' => 'flickr_gallery'}Flickr Gallery
           #flickr-ss
