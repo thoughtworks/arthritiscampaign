@@ -35,6 +35,7 @@ before do
   language =  params['language'] || request.cookies['userLanguage'] || 'en'
   set :language, language
   set :language_suffix, language == 'en' ? '' : "-#{language}"
+  set :language_suffix2, language == 'en' ? '' : "#{language}"
 end
 
 after do
