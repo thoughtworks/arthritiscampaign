@@ -28,7 +28,7 @@
 :javascript
   $(document).ready(function() {
     $("#upload-photo").click(function(){
-      window.parent.window.scrollTo(0,0);
+      window.parent.$("body").animate({scrollTop:0}, 'slow');
       $("#upload-photo-container").modal('show');
     });
     
