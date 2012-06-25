@@ -174,7 +174,81 @@ For example, if you want to add http://newCampaign.arthritis.ca to your website,
 
 ## Change the Campaign message and images
 
-under construction...
+### Change Flickr image tag
+When you start a new campaign, you should change the Flickr image tag to make sure the new campaign use a different group of images.
+
+
+Edit app.rb file under the source code repository root folder. Change the line:
+
+	set :campaign, "arthritiscampaign"
+
+to set the Flickr image tag.
+
+### Change sharing messages
+To change the sharing messages for Facebook, Twitter and Tumblr, edit "lib/helpers/application_helper.rb":
+
+	def facebook_message
+       settings.language == 'en' ?
+         "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://www.goriete.com/page.aspx?pid=6324"
+         : "S'il vous plaît soutenir 4,6 millions de Canadiens vivant avec l'arthrite! Regardez la vidéo et partager l'infographie! http://www.goriete.com/page.aspx?pid=6324"
+    end
+
+    def tumblr_message
+      settings.language == 'en' ?
+        "I support 4.6 million Canadians living with arthritis! Do you?"
+        : "Je soutiens 4,6 millions de Canadiens vivant avec l'arthrite! Et vous?"
+    end
+     
+    def twitter_message(photo_url)
+      settings.language == 'en' ?
+        "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://www.goriete.com/page.aspx?pid=6324"
+        : "S'il vous plaît soutenir 4,6 millions de Canadiens vivant avec l'arthrite! Regardez la vidéo et partager l'infographie!"
+    end
+
+Change the return value of those three methods as shown in above code block in both English and French.
+
+### Change banners
+
+Goto "static/images/banners/" folder, you will see these files:
+
+	banner1.png			
+	banner2.png			
+	banner3-small.png	
+	banner1-fr.png	
+	banner2-fr.png	
+	banner3-small-fr.png
+	banner1-thumb.png		
+	banner2-thumb.png		
+	banner3-small-thumb.png
+	banner1-thumb-fr.png		
+	banner2-thumb-fr.png		
+	banner3-small-thumb-fr.png
+	
+This application has three banners. Each one has three images.
+
+"bannerx.png" is the image embeded into the users photo when user's language is English. (X means 1 or 2 or 3. Same as below)
+
+"bannerx-fr.png" is the image embeded into the users photo when user's language is French.
+
+"bannerx-thumb.png" is the image shown in the uploading dialog.
+
+Any banner whose name contains "small" will be embeded into the users phtoto with smaller size.
+
+You can replace those images with new images but keep the same name conversions to change banners.
+
+### Change other content of the web pages
+There are three web pages and one css file under "views" folder you can change:
+	
+	index.haml	layout.haml	show.haml	styles.sass
+	
+	
+layout.haml is the common view shared by index.haml and show.haml. 
+
+"styles.sass" is the SASS file which will be automatically converted to CSS file by web server. 
+	
+	
+After you make the local change, test it on the local server. When everything is good, you can push to github and push to Heroku to deploy to production.
+
 
 
 
