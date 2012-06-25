@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'uri'
 require 'cgi'
 require 'sharing/facebook'
@@ -12,9 +13,14 @@ module Sinatra
 
     def share_to_tumblr_url(photo_url)
       "http://www.tumblr.com/share/photo?source=#{CGI.escape(photo_url)}" +
-        "&caption=#{URI.escape('I support 4.6 million Canadians living with arthritis! Do you?')}" +
+        "&caption=#{CGI.escape(tumblr_message)}" +
         "&click_thru=#{CGI.escape(request.url)}"
     end
+    
+    def share_to_twitter_url(photo_url)
+      "https://twitter.com/intent/tweet?source=webclient&text=#{CGI.escape(twitter_message(photo_url))}&via=ArthritisSoc"
+    end
+
 
     def facebook
       @facebook_sharing ||= Sharing::Facebook.new(settings.fb_app_id, settings.fb_app_secret)
@@ -25,15 +31,21 @@ module Sinatra
     end
     
     def facebook_message
-      "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://www.goriete.com/page.aspx?pid=6324"
+       settings.language == 'en' ?
+         "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://www.goriete.com/page.aspx?pid=6324"
+         : "S'il vous plaît soutenir 4,6 millions de Canadiens vivant avec l'arthrite! Regardez la vidéo et partager l'infographie! http://www.goriete.com/page.aspx?pid=6324"
     end
 
-    def share_to_twitter_url(photo_url)
-      "https://twitter.com/intent/tweet?source=webclient&text=#{twitter_message(photo_url)}&via=ArthritisSoc"
+    def tumblr_message
+      settings.language == 'en' ?
+        "I support 4.6 million Canadians living with arthritis! Do you?"
+        : "Je soutiens 4,6 millions de Canadiens vivant avec l'arthrite! Et vous?"
     end
-  
+     
     def twitter_message(photo_url)
-      URI.escape("Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://www.goriete.com/page.aspx?pid=6324")
+      settings.language == 'en' ?
+        "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://www.goriete.com/page.aspx?pid=6324"
+        : "S'il vous plaît soutenir 4,6 millions de Canadiens vivant avec l'arthrite! Regardez la vidéo et partager l'infographie!"
     end
 
   end
