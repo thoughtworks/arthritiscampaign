@@ -32,7 +32,10 @@
             %h2{'data-localize' => 'add_picture_to_show_support_'}Add your picture to show your support!
             %p{'data-localize' => 'create_and_share_photo_'}Create and share your photo using the tool below. Your photo will be posted on our Flickr online gallery, and you will also be able to share it on Facebook, Twitter and Tumblr.
             #sample-images.clear
-              %img.sample{:src => "/images/arthritis-society#{settings.language_suffix}.png"}
+              %img.sample{:src => "/images/banners/banner1#{settings.language_suffix}.png"}
+              %img.sample{:src => "/images/banners/banner2#{settings.language_suffix}.png"}
+              %img.sample{:src => "/images/banners/banner3-small#{settings.language_suffix}.png"}
+
             #disclaimer.clear
               #disclaimer-description
                 %p{'data-localize' =>'i_agree_to_allow_'}I agree to allow The Arthritis Society to use my photograph as mentioned in the statement linked to this checkbox:*
@@ -43,9 +46,6 @@
             %center.clear
               %button.btn.btn-large.btn-primary#upload-photo{:disabled => 'disabled', 'data-localize' => 'upload_your_photo'} Upload Your Photo
             %a#view-manifesto{ :href => "/images/manifesto#{settings.language_suffix}.jpg"}
-              %h2{'data-localize' => 'view_our_manifesto'}View Our Manifesto
-              %center
-                %img{:src => "/images/manifesto-thumb#{settings.language_suffix}.jpg"}
         #right-side-header
           #right-container
             %h2{ 'data-localize' => 'flickr_gallery'}Flickr Gallery
@@ -54,7 +54,9 @@
             #map-canvas
             %h2{ 'data-localize' => 'watch_our_video'}Watch Our Video
             %iframe#video{ :src => "http://player.vimeo.com/video/42697821", 'src-fr' => "http://player.vimeo.com/video/42697820"}
-
+            %h2{'data-localize' => 'view_our_manifesto'}View Our Manifesto
+            %center
+              %img{:src => "/images/manifesto-thumb#{settings.language_suffix}.jpg"}
       #content
         = yield
       %br
