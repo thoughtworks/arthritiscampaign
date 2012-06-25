@@ -6,7 +6,6 @@ require 'haml'
 require 'sass'
 require 'helpers/application_helper'
 require 'helpers/image_helper'
-require 'helpers/twitter_helper'
 require 'helpers/url_helper'
 require 'helpers/geo_helper'
 
