@@ -54,12 +54,19 @@ h1, h2, h3, h4
       opacity: 1
     input[type='radio']
       visibility: hidden
-    &.one
+    &.one[language='en']
       background: url(/images/banners/banner1-thumb.png) no-repeat scroll top left
-    &.two
+    &.two[language='en']
       background: url(/images/banners/banner2-thumb.png) no-repeat scroll top left
-    &.three
+    &.three[language='en']
       background: url(/images/banners/banner3-small-thumb.png) no-repeat scroll top left
+    &.one[language='fr']
+      background: url(/images/banners/banner1-thumb-fr.png) no-repeat scroll top left
+    &.two[language='fr']
+      background: url(/images/banners/banner2-thumb-fr.png) no-repeat scroll top left
+    &.three[language='fr']
+      background: url(/images/banners/banner3-small-thumb-fr.png) no-repeat scroll top left
+
 
 #editor-canvas
   position: relative

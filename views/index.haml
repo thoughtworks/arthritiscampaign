@@ -12,13 +12,13 @@
       .color-picker
         %h4.title{'data-localize' => 'pick_your_message'}Pick your message
         .controls
-          %label.one.active
+          %label.one.active{:language => settings.language}
             %input{ :type => 'radio', :name => 'banner', :value => 'banner1', :checked => 'checked' }
             First choice
-          %label.two
+          %label.two{:language => settings.language}
             %input{ :type => 'radio', :name => 'banner', :value => 'banner2' }
             Second Choice
-          %label.three
+          %label.three{:language => settings.language}
             %input{:type => 'radio', :name => 'banner', :value => 'banner3-small' }
             Third Choice
     .modal-footer.generate
