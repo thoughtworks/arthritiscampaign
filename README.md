@@ -249,6 +249,46 @@ layout.haml is the common view shared by index.haml and show.haml.
 	
 After you make the local change, test it on the local server. When everything is good, you can push to github and push to Heroku to deploy to production.
 
+## Localization
+
+### Translate static text
+We are using [JQuery localize plugin](https://github.com/coderifous/jquery-localize) to translate static text on webpages.
+
+The file "static/localization/app-fr.json" is a json data file which contains all the phrases' French translation: 
+
+	{
+  	"we_have_arthritis": "Nous avons l'arthrite!",
+ 	 "join_the_arthritis_society_": "Rejoignez la campagne spéciale La Société d'arthrite pour sensibiliser sur l'impact de la maladie sur 4,6 millions de Canadiens vivant avec l'arthrite. L'arthrite peut toucher n'importe qui, il affecte les bébés et grondé, ainsi que les personnes dans la fleur de leur vie. Près de trois personnes sur cinq atteintes d'arthrite sont en âge de travailler (moins de 65 ans).",
+    	….
+
+Please note that sharing messages are not translated in this file but in the "lib/helpers/application_helper.rb".
+
+###Translation images
+We localize the images by dynamically change the img.src directly in the view using Ruby code. 
+
+For example, in the "views/layout.haml":
+
+	 %img.sample{:src => "/images/banners/banner1#{settings.language_suffix}.png"}
+
+If the image "banner1.png" need a French translation, just create an image named "banner1-fr.png" under the same folder.
+
+**Note: The ruby variable settings.language_suffix will be empty if user language is English, but 'fr' for French.**
+
+###Translation links
+We localize the links by dynamically change the a.href directly in the view using Ruby code. 
+
+For example, , in the "views/layout.haml":
+
+	  %a#view-manifesto{ :href => "/images/manifesto#{settings.language_suffix}.jpg"}
+
+If the link "/images/manifesto.jpg" need a French translation, just create an link named "/images/manifesto-fr.jpg" under the same folder.
+
+**Note: The ruby variable settings.language_suffix will be empty if user language is English, but 'fr' for French.**
+
+  
+  
+ 
+
 
 
 

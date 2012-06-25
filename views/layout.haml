@@ -46,7 +46,6 @@
                 %a#agree-doc{:href => "/doc/PermissionIsRequired#{settings.language_suffix}.doc", 'data-localize' => 'user_permission_release'} User permission release
             %center.clear
               %button.btn.btn-large.btn-primary#upload-photo{:disabled => 'disabled', 'data-localize' => 'upload_your_photo'} Upload Your Photo
-            %a#view-manifesto{ :href => "/images/manifesto#{settings.language_suffix}.jpg"}
         #right-side-header
           #right-container
             %h2{ 'data-localize' => 'flickr_gallery'}Flickr Gallery
@@ -55,9 +54,10 @@
             #map-canvas
             %h2{ 'data-localize' => 'watch_our_video'}Watch Our Video
             %iframe#video{ :src => "http://player.vimeo.com/video/42697821", 'src-fr' => "http://player.vimeo.com/video/42697820"}
-            %h2{'data-localize' => 'view_our_manifesto'}View Our Manifesto
-            %center
-              %img{:src => "/images/manifesto-thumb#{settings.language_suffix}.jpg"}
+            %a#view-manifesto{ :href => "/images/manifesto#{settings.language_suffix}.jpg"}
+              %h2{'data-localize' => 'view_our_manifesto'}View Our Manifesto
+              %center
+                %img{:src => "/images/manifesto-thumb#{settings.language_suffix}.jpg"}
       #content
         = yield
       %br
