@@ -6,15 +6,15 @@ http://www.arthritis.ca
 We need setup some third party accounts for our application.
 
 ### Flickr
-This application uses Flickr API to store images on Flickr. We need a Flickr application for us. 
+We need a Flickr application store images on Flickr. 
 
 If you don't have Flickr account, please [create one](http://www.flickr.com/).
 
 To get info of your Flickr application, you can goto [The App Garden](http://www.flickr.com/services/)
 
-If you don't have Flickr application, you create one by goto [Get an API Key](http://www.flickr.com/services/apps/create/apply/)
+If you don't have Flickr application, you can create one by goto [Get an API Key](http://www.flickr.com/services/apps/create/apply/)
 
-Once your application created, you can click the link "App By You" which is on the right side of [The App Garden](http://www.flickr.com/services/). From there you can get your application's key and secret. Write down them for future use.
+Once your application is created, you can click the link "App By You" which is on the right side of [The App Garden](http://www.flickr.com/services/) to get your application's key and secret. Write down them for future use.
 
 ** Get your Flickr user ID **
 
@@ -27,18 +27,18 @@ If you don't have a Facebook account, please [create one](http://www.facebook.co
 
 You can goto [Facebook Developer Center](https://developers.facebook.com/apps) to setup your Facebook applications.
 
-To create a Facebook application, click "Create New App" on  the right top of the web page and follow the instruction to create one. During the process, give a name to the app. **Don't check "Yes, I would like free web hosting provided by Heroku" since our website cannot use the domain name provided by Heroku.** After you submit your creation request, you will be navigate to basic info page for the created app.
+To create a Facebook application, click "Create New App" on  the right top of the web page and follow the instruction to create one. During the process, give a name of the application. **Don't check "Yes, I would like free web hosting provided by Heroku" since our website cannot use the domain name provided by Heroku.** After you submit your creation request, you will be navigate to basic info page of the created app.
 
-From the basic info page, **click "Mobile Web" section and fill in the "Mobile Web URL" with your website url**. For example, use "http://campaign.goriete.com/". Then click "Save Changes" to save your changes.
+On the basic info page, **click "Mobile Web" section and fill in the "Mobile Web URL" with your website url**. For example, use "http://campaign.goriete.com/". Then click "Save Changes" to save your changes.
 
-**Whenever our application's website URL has changed, please edit the Facebook applicaton to reset the "Mobile Web URL".**
+**Whenever the URL of our application's website is changed, please edit the Facebook applicaton to reset the "Mobile Web URL".**
 
-I know, "Mobile Web URL" sounds wired. But it is the only way to give a custom URL to integrate with Facebook application at the moment when I write this document.
+I know, "Mobile Web URL" sounds wired. But it is so far the only way to give a custom URL to integrate with Facebook application.
 
 Please write down the Facebook application App ID and App Secret ID for future use.
 
 ###Google
-This application uses Google Map javascript plugin to show the uploaded image geolocation info. We need a google application ID for the plugin.
+This application uses Google Map Javascript plugin to show the uploaded image geolocation info. We need a google application ID for the plugin.
 
 If you don't have a google account, create one.
 
@@ -74,7 +74,7 @@ You can run following command to get local readonly repository:
 
 	>git clone git://github.com/thoughtworks/arthritiscampaign.git
 	
-You have ssh key setup for the github account, you can get a full permission repository using following command:
+Or if you have ssh key setup for the github account, you can get a full permission repository using following command:
 
     >git clone git@github.com:thoughtworks/arthritiscampaign.git
 
@@ -89,7 +89,7 @@ Run the following command to install required ruby gem dependencies:
 	
 ### Get Flickr access token
 If you do't have Flickr access token, go to [flickraw](https://github.com/hanklords/flickraw#authentication). Copy the ruby script in the code block and save it as a ruby file (for example, 'auth.rb'). **Make sure replace the flickr api key and secret in the script.** 
-Run the script and following the output instruction to get access token and secret generate in the console output. Write down them for future use.
+Run the script and following the output instruction to get access token and secret generated in the console output. Write down them for future use.
 
 	>ruby auth.rb
 
@@ -113,6 +113,8 @@ Save the file and run the command to make these environment variables in effect:
 
 	>source ~/.bashrc
 	
+If you are a Windows user, please reference [setting environment variables in Windows](http://best-windows.vlaurie.com/environment-variables.html).
+	
 ### Run the local ruby server
 Now you can run the local ruby server to host our application:
 
@@ -128,7 +130,7 @@ You can press Ctrl+C to stop the server from the command line.
 
 If you want to create a Heroku application, please follow [the instruction](https://devcenter.heroku.com/articles/ruby#deploy_to_herokucedar).
 
-The application has been accociated with a Heroku application at the moment when I write this post, so you don't need create the Heroku application but just add follow lines into .git/config file of your souce code repository folder:
+The application has been accociated with a Heroku application at the moment when I write this post, so you don't need create the Heroku application but just add follow lines into .git/config file in your souce code repository folder:
 
 	[remote "heroku"]
 	url = git@heroku.com:smooth-mist-8780.git
@@ -168,6 +170,8 @@ For example, if you want to add http://newCampaign.arthritis.ca to your website,
 
 	>heroku domains:add newCampaign.arthritis.ca
 	
+Also you need set a DNS Cname entry to point your custom URL to the Heroku url, http://smooth-mist-8780.herokuapp.com/.
+
 **Note: don't forget change your facebook application to update the "Mobile Web URL" as "http://newCampaign.arthritis.ca" for this new domain.**
 	
 
@@ -178,11 +182,11 @@ For example, if you want to add http://newCampaign.arthritis.ca to your website,
 When you start a new campaign, you should change the Flickr image tag to make sure the new campaign use a different group of images.
 
 
-Edit app.rb file under the source code repository root folder. Change the line:
+Edit app.rb file under the source code repository root folder. Replace "arthritiscampaign" in the line:
 
 	set :campaign, "arthritiscampaign"
 
-to set the Flickr image tag.
+to set a new tag.
 
 ### Change sharing messages
 To change the sharing messages for Facebook, Twitter and Tumblr, edit "lib/helpers/application_helper.rb":
@@ -205,7 +209,7 @@ To change the sharing messages for Facebook, Twitter and Tumblr, edit "lib/helpe
         : "S'il vous plaît soutenir 4,6 millions de Canadiens vivant avec l'arthrite! Regardez la vidéo et partager l'infographie!"
     end
 
-Change the return value of those three methods as shown in above code block in both English and French.
+Change the return value of those three methods as shown in above code block for both English and French.
 
 ### Change banners
 
@@ -230,14 +234,14 @@ This application has three banners. Each one has three images.
 
 "bannerx-fr.png" is the image embeded into the users photo when user's language is French.
 
-"bannerx-thumb.png" is the image shown in the uploading dialog.
+"bannerx-thumb.png" is the thumb image shown in the uploading dialog.
 
 Any banner whose name contains "small" will be embeded into the users phtoto with smaller size.
 
-You can replace those images with new images but keep the same name conversions to change banners.
+You can replace those images with new images but keep the same names to change banners without changing source code.
 
 ### Change other content of the web pages
-There are three web pages and one css file under "views" folder you can change:
+There are three web view files and one css file under "views" folder:
 	
 	index.haml	layout.haml	show.haml	styles.sass
 	
@@ -250,6 +254,11 @@ layout.haml is the common view shared by index.haml and show.haml.
 After you make the local change, test it on the local server. When everything is good, you can push to github and push to Heroku to deploy to production.
 
 ## Localization
+
+### Set user language
+You can add an URL parameter to set user language. For example, use "http://you_website_url?**language=fr**" to access this application with user language as French. You can change "fr" to "en" to set the language as English. 
+
+**Once you set language through URL parameter, server will set a cookie to keep the setting on client side. The user language setting will be kept until you set the language through URL parameter again.**
 
 ### Translate static text
 We are using [JQuery localize plugin](https://github.com/coderifous/jquery-localize) to translate static text on webpages.
@@ -272,7 +281,7 @@ For example, in the "views/layout.haml":
 
 If the image "banner1.png" need a French translation, just create an image named "banner1-fr.png" under the same folder.
 
-**Note: The ruby variable settings.language_suffix will be empty if user language is English, but 'fr' for French.**
+**Note: The ruby variable settings.language_suffix will be empty if user language is English, but '-fr' for French.**
 
 ###Translation links
 We localize the links by dynamically change the a.href directly in the view using Ruby code. 
@@ -281,9 +290,27 @@ For example, , in the "views/layout.haml":
 
 	  %a#view-manifesto{ :href => "/images/manifesto#{settings.language_suffix}.jpg"}
 
-If the link "/images/manifesto.jpg" need a French translation, just create an link named "/images/manifesto-fr.jpg" under the same folder.
+If the resouce pointed by the "/images/manifesto.jpg" need a French translation, just create the resourced with the link "/images/manifesto-fr.jpg".
 
-**Note: The ruby variable settings.language_suffix will be empty if user language is English, but 'fr' for French.**
+**Note: The ruby variable settings.language_suffix will be empty if user language is English, but '-fr' for French.**
+
+###Translate video
+Since the URLs of English video and French video are not following the pattern of "url/url-fr", a custom HTML property and Javascript are used to set the url based on user language setting. In the file, views/layout.haml:
+
+	  %iframe#video{ :src => "http://player.vimeo.com/video/42697821", 'src-fr' => "http://player.vimeo.com/video/42697820"}
+
+custom property 'src-fr' is the video URL for French. 
+
+	 if(language == 'fr'){
+          $("#video").attr("src", $("#video").attr("src-fr"));
+        }
+In the same file the embeded Javascript will reset src property based on the language setting.
+
+##Credits
+The original code base is from [Israel Love Iran](https://github.com/rafaelpetry/israelovesiran).
+
+Written by Peter Zhao and Rafael Ferreira from Thoughtworks.
+
 
   
   
