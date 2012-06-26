@@ -89,7 +89,6 @@ get '/callback/facebook/:photo_id' do
   photo = flickr.photo_url(params[:photo_id])
   callback_url = facebook_callback_url(params[:photo_id])
   facebook.share_photo(photo, session[:fb_message], params[:code], callback_url)
-  session[:sharing_success] = "Your picture was posted on your Facebook profile."
   session[:fb_message] = nil
   haml :facebook, :layout => false
 end
