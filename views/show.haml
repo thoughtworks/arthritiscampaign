@@ -12,7 +12,7 @@
       %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_twitter_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')", 'data-localize' => 'share_on_twitter' } Share on Twitter
       %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_tumblr_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')", 'data-localize' => 'share_on_tumblr' } Share on Tumblr
     
-%form{:method => 'get', :action =>"/share/facebook/#{photo_id}"}
+%form{:method => 'get', :action =>"/share/facebook/#{photo_id}", :target => "_blank"}
   .modal.hide#share_facebook
     .modal-header
       %button.close{ :type => "button", 'data-dismiss' =>"modal"}×

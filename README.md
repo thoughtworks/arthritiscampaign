@@ -306,7 +306,16 @@ custom property 'src-fr' is the video URL for French.
         }
 In the same file the embeded Javascript will reset src property based on the language setting.
 
-##Credits
+##Credits & Licensing
+Copyright 2012 Arthritis Society.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   
+   you may not use this file except in compliance with the License.
+   
+   You may obtain a copy of [the License here](http://www.apache.org/licenses/LICENSE-2.0)
+
+ 
 The original code base is from [Israel Love Iran](https://github.com/rafaelpetry/israelovesiran).
 
 Written by Peter Zhao and Rafael Ferreira from Thoughtworks.
