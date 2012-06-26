@@ -91,7 +91,7 @@ get '/callback/facebook/:photo_id' do
   facebook.share_photo(photo, session[:fb_message], params[:code], callback_url)
   session[:sharing_success] = "Your picture was posted on your Facebook profile."
   session[:fb_message] = nil
-  redirect "/show/#{params[:photo_id]}"
+  haml :facebook, :layout => false
 end
 
 get '/max_width' do

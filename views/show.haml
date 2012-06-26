@@ -12,7 +12,7 @@
       %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_twitter_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')", 'data-localize' => 'share_on_twitter' } Share on Twitter
       %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_tumblr_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')", 'data-localize' => 'share_on_tumblr' } Share on Tumblr
     
-%form{:method => 'get', :action =>"/share/facebook/#{photo_id}", :target => "_blank"}
+%form#facebook-form{:method => 'get', :action =>"/share/facebook/#{photo_id}", :target => "_blank"}
   .modal.hide#share_facebook
     .modal-header
       %button.close{ :type => "button", 'data-dismiss' =>"modal"}×
@@ -22,7 +22,7 @@
       %p{'data-localize' => 'please_add_message_for_sharing_'}  Please add message for sharing the image on Facebook:
       %textarea#facebook-message{:name => 'message', :col => 35, :row => 3, 'data-localize' => 'please_support_million_canadians'}=facebook_message
     .modal-footer
-      %input.btn.btn-primary{ :href => "#", :type => 'submit', :value => 'Continue', 'data-localize' => 'continue'} 
+      %input.btn.btn-primary#continue{ :href => "#", :type => 'button', :value => 'Continue', 'data-localize' => 'continue'} 
 
 
 :javascript
@@ -37,6 +37,11 @@
    
     $('#share-image-container').on('hidden', function () {
       window.location = '/'
+    });
+    
+    $("#continue").click(function(){
+       $("#share_facebook").modal('hide');
+       $("#facebook-form").submit();
     });
   });
  
