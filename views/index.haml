@@ -9,18 +9,13 @@
         #editor-canvas
           #banner
           #picture
-      .color-picker
+      .banner-picker
         %h4.title{'data-localize' => 'pick_your_message'}Pick your message
-        .controls
-          %label.one.active{:language => settings.language}
-            %input{ :type => 'radio', :name => 'banner', :value => 'banner1', :checked => 'checked' }
-            First choice
-          %label.two{:language => settings.language}
-            %input{ :type => 'radio', :name => 'banner', :value => 'banner2' }
-            Second Choice
-          %label.three{:language => settings.language}
-            %input{:type => 'radio', :name => 'banner', :value => 'banner3-small' }
-            Third Choice
+        %center.controls
+          %img.active{:src => "/images/banners/banner1#{settings.language_suffix}.png", :banner => "banner1#{settings.language_suffix}"}
+          %img{:src => "/images/banners/banner2#{settings.language_suffix}.png", :banner => "banner2#{settings.language_suffix}"}
+          %img{:src => "/images/banners/banner3-small#{settings.language_suffix}.png", :banner => "banner3-small#{settings.language_suffix}"}
+        %input{:type => "hidden", :value => "banner1#{settings.language_suffix}", :name => "banner"}
     .modal-footer.generate
       %center
         %button.btn.btn-primary.btn-large#generate-btn{ :type => 'submit', :disabled => "disabled", 'data-localize' => 'generate_your_image' } Generate your image!

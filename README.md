@@ -221,20 +221,13 @@ Goto "static/images/banners/" folder, you will see these files:
 	banner1-fr.png	
 	banner2-fr.png	
 	banner3-small-fr.png
-	banner1-thumb.png		
-	banner2-thumb.png		
-	banner3-small-thumb.png
-	banner1-thumb-fr.png		
-	banner2-thumb-fr.png		
-	banner3-small-thumb-fr.png
+	
 	
 This application has three banners. Each one has three images.
 
 "bannerx.png" is the image embeded into the users photo when user's language is English. (X means 1 or 2 or 3. Same as below)
 
 "bannerx-fr.png" is the image embeded into the users photo when user's language is French.
-
-"bannerx-thumb.png" is the thumb image shown in the uploading dialog.
 
 Any banner whose name contains "small" will be embeded into the users phtoto with smaller size.
 

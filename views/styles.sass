@@ -29,7 +29,7 @@ h1, h2, h3, h4
 #left-container
   margin: 0px 5px 5px 5px
   
-.color-picker
+.banner-picker
   display: none
 
 .generate
@@ -38,34 +38,21 @@ h1, h2, h3, h4
 
 
 .controls
-  label
-    background-size: 108px 82px
+  width: 100%
+  img
     width: 108px
     height: 82px
-    display: inline-block
     cursor: pointer
-    color: transparent
     margin: 3px
     opacity: 0.3
+    filter: alpha(opacity=30)
     vertical-align: middle
     &:hover
       opacity: 0.6
+      filter: alpha(opacity=60)
     &.active
       opacity: 1
-    input[type='radio']
-      visibility: hidden
-    &.one[language='en']
-      background: url(/images/banners/banner1-thumb.png) no-repeat scroll top left
-    &.two[language='en']
-      background: url(/images/banners/banner2-thumb.png) no-repeat scroll top left
-    &.three[language='en']
-      background: url(/images/banners/banner3-small-thumb.png) no-repeat scroll top left
-    &.one[language='fr']
-      background: url(/images/banners/banner1-thumb-fr.png) no-repeat scroll top left
-    &.two[language='fr']
-      background: url(/images/banners/banner2-thumb-fr.png) no-repeat scroll top left
-    &.three[language='fr']
-      background: url(/images/banners/banner3-small-thumb-fr.png) no-repeat scroll top left
+      filter: alpha(opacity=100)
 
 
 #editor-canvas
@@ -75,7 +62,6 @@ h1, h2, h3, h4
 
 #banner
   position: absolute
-  .banner-image
 
 .south
   left: 50%

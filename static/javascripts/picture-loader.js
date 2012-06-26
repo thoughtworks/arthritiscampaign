@@ -13,7 +13,7 @@ $(function() {
         $('#picture').html(picture);
 
         picture.onload = function () {
-          $('.controls label.active input')[0].click();
+          $('.controls img')[0].click();
         };
     };
 
@@ -45,16 +45,12 @@ $(function() {
     }
   };
 
-  $('.controls label input[type="radio"]').click(function () {
-    var bannerName = $(this).val();
+  $('.controls img').click(function () {
+    var bannerName = $(this).attr("banner");
 
-    $('.controls label').removeClass('active');
-    $(this).parent('label').addClass('active');
-
-    // this is the cherry on the top
-    $('body').removeAttr('class');
-    $('body').addClass(bannerName);
-
+    $('.controls img').removeClass('active');
+    $(this).addClass('active');
+    $("input[name='banner']").val(bannerName);
     updateBanner(bannerName);
   });
   $('input#choose-picture').on("change", function (evt) {
@@ -74,13 +70,13 @@ $(function() {
       $('#generate-btn').attr("disabled", "disabled");
       $('#picture').html("");
       $('#banner').html("");
-      $("div.color-picker").hide();
+      $("div.banner-picker").hide();
       $("div.generate").hide();
       return;
     }
     handleFileSelect(filePath);
     $('#generate-btn').removeAttr("disabled");
-    $("div.color-picker").show();
+    $("div.banner-picker").show();
     $("div.generate").show();
   });
 });
