@@ -1,18 +1,21 @@
 ='<!DOCTYPE html>'
 %html
   %head
-    %title Message Shared
+    %title Share on Facebook
     %meta{ :charset => 'utf-8' }
     %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %link{ :rel => 'stylesheet', :href => '/stylesheets/bootstrap.min.css', :type => 'text/css' }
     %link{ :rel => 'stylesheet', :href => '/stylesheets/styles.css', :type => 'text/css' }
     %script{ :type => 'text/javascript', :src => '/javascripts/jquery-1.7.2.min.js' }
+    %script{ :type => 'text/javascript', :src => "/javascripts/jquery.localize.js"}
   %body
-    %center
-      %h3.alert.alert-success#facebook-confirm{'data-localize' =>'picture_posted_on_facebook'} Your picture has been posted on your Facebook profile.
-      %a{:href =>"", :OnClick => "window.close()", 'data-localize' => 'close_window'}Close Window
-      %br
-      %dev{'data-localize' =>"window_will_be_closed_in_seconds"} This windows will be closed in secends....
+    #facebook-content
+      = yield
 
 :javascript
-  setTimeout("self.close();",3000);
+  //localization
+  $(document).ready(function(){
+    language = "#{settings.language}";
+    $("[data-localize]").localize("app", { language: language, pathPrefix:"/localization" ,skipLanguage: /^en/ });
+  });
+

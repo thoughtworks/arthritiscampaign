@@ -35,7 +35,6 @@ before do
   language =  params['language'] || request.cookies['userLanguage'] || 'en'
   set :language, language
   set :language_suffix, language == 'en' ? '' : "-#{language}"
-  set :language_suffix2, language == 'en' ? '' : "#{language}"
 end
 
 after do
@@ -85,12 +84,16 @@ get '/share/facebook/:photo_id' do
   redirect facebook.authorization_url(callback_url)
 end
 
+get '/share/facebook/message/:photo_id' do
+  haml :facebook_message, :layout => :facebook_layout, :locals => { :photo_id => params[:photo_id]}
+end
+
 get '/callback/facebook/:photo_id' do
   photo = flickr.photo_url(params[:photo_id])
   callback_url = facebook_callback_url(params[:photo_id])
   facebook.share_photo(photo, session[:fb_message], params[:code], callback_url)
   session[:fb_message] = nil
-  haml :facebook, :layout => false
+  haml :facebook_shared, :layout => :facebook_layout
 end
 
 get '/max_width' do

@@ -1,0 +1,15 @@
+%form#facebook-form{:method => 'get', :action =>"/share/facebook/#{photo_id}"}
+  #share_facebook
+    %center
+      %h3{'data-localize' => 'share_on_facebook'}  Share on Facebook
+      %p{'data-localize' => 'please_add_message_for_sharing_'}  Please add message for sharing the image on Facebook:
+      %textarea#facebook-message{:name => 'message', :col => 35, :row => 3, 'data-localize' => 'please_support_million_canadians'}=facebook_message
+      %input.btn.btn-primary#continue{ :href => "#", :type => 'submit', :value => 'Continue', 'data-localize' => 'continue'} 
+      %input.btn#cancel{ :href => "#", :type => 'button', :value => 'Cancel', 'data-localize' => 'cancel'} 
+
+:javascript
+  $(document).ready(function() {
+    $("#cancel").click(function(){
+       window.close();
+    });
+  }); 
