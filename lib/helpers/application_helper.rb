@@ -32,20 +32,20 @@ module Sinatra
     
     def facebook_message
        settings.language == 'en' ?
-         "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://www.goriete.com/page.aspx?pid=6324"
-         : "S'il vous plaît soutenir 4,6 millions de Canadiens vivant avec l'arthrite! Regardez la vidéo et partager l'infographie! http://www.goriete.com/page.aspx?pid=6324"
+         "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://Campaign.arthrite.ca/"
+         : "Apportez votre soutien aux 4,6 millions de Canadiens souffrant d’arthrite! Regardez la vidéo et partagez-la! http://Campagne.arthrite.ca/"
     end
 
     def tumblr_message
       settings.language == 'en' ?
         "I support 4.6 million Canadians living with arthritis! Do you?"
-        : "Je soutiens 4,6 millions de Canadiens vivant avec l'arthrite! Et vous?"
+        : "J’apporte mon soutien aux 4,6 millions de Canadiens souffrant d’arthrite! Et vous?"
     end
      
     def twitter_message(photo_url)
       settings.language == 'en' ?
-        "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://www.goriete.com/page.aspx?pid=6324"
-        : "S'il vous plaît soutenir 4,6 millions de Canadiens vivant avec l'arthrite! Regardez la vidéo et partager l'infographie!"
+        "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://Campaign.arthrite.ca/"
+        : "Apportez votre soutien aux 4,6 millions de Canadiens souffrant d’arthrite! Regardez la vidéo et partagez-la! http://Campagne.arthrite.ca/"
     end
 
   end
