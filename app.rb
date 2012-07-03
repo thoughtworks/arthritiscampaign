@@ -20,10 +20,12 @@ configure do
   set :flickr_secret, ENV['FLICKR_SECRET']
   set :flickr_access_token, ENV['FLICKR_ACCESS_TOKEN']
   set :flickr_access_secret, ENV['FLICKR_ACCESS_SECRET']
+  set :flickr_photoset_id, ENV['FLICKR_PHOTOSET_ID']
 
   set :fb_app_id, ENV['FB_APP_ID']
   set :fb_app_secret, ENV['FB_APP_SECRET']
   set :google_api_key, ENV['GOOGLE_API_KEY']
+  
 
 end
 
@@ -59,6 +61,7 @@ post '/upload_from_mobile' do
 end
 
 post '/upload' do
+  puts "***********in upload...."
   unless is_an_image? params[:photo]
     session[:error] = "Please, upload an image"
     redirect '/'
@@ -68,9 +71,16 @@ post '/upload' do
   user_img = resize(file_name)
   photo = add_logo(user_img, params[:banner])
   photo.write(file_name)
+  puts "***********merged photo...."
+
   photo_id = flickr.upload file_name
+  puts "***********uploaded to flickr...."
+
   geo = get_geo(request.ip)
   flickr.set_location photo_id, geo[0], geo[1]
+   puts "***********set geoloactiona...."
+
+  flickr.add_to_set photo_id 
   redirect "/show/#{photo_id}"
 end
 

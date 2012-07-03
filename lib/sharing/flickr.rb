@@ -19,6 +19,10 @@ module Sharing
         return if latitude == nil  or latitude.length == 0
     	client.photos.geo.setLocation :photo_id => photo_id, :lat => latitude.to_f, :lon => longitude.to_f, :accuracy => 16
         puts "location #{latitude}, #{longitude} to photo #{photo_id} is set."
+    end
+
+    def add_to_set(photo_id)
+      client.photosets.addPhoto :photo_id => photo_id, :photoset_id => settings.flickr_photoset_id if settings.flickr_photoset_id
     end 
 
     def photo_url(photo_id)

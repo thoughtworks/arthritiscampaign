@@ -93,6 +93,9 @@ Run the script and following the output instruction to get access token and secr
 
 	>ruby auth.rb
 
+### Get Flickr Photoset ID
+If you want to upload photos to a Flickr photoset, create one photoset under the Flickr account, write down the ID for future use.
+
 	
 ### Setup local enviroment variables
 If you are using Linux or OX, open/create ~/.bashrc file and append following lines:
@@ -106,6 +109,7 @@ If you are using Linux or OX, open/create ~/.bashrc file and append following li
 	export FLICKR_USER_ID=your_flickr_user_id
 	export GOOGLE_ANALYTICS_ID=your_google_analytics_id
 	export GOOGLE_API_KEY=your_goolge_api_key
+	export FLICKR_PHOTOSET_ID=your_flickr_photoset_id
 	
 **Replace all the keys with those we wrote down before in above lines.**
 
