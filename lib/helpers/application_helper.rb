@@ -44,8 +44,8 @@ module Sinatra
      
     def twitter_message(photo_url)
       settings.language == 'en' ?
-        "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://Campaign.arthrite.ca/"
-        : "Apportez votre soutien aux 4,6 millions de Canadiens souffrant d’arthrite! Regardez la vidéo et partagez-la! http://Campagne.arthrite.ca/"
+        "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://Campaign.arthrite.ca"
+        : "Apportez votre soutien aux 4,6 millions de Canadiens souffrant d’arthrite! Regardez la vidéo et partagez-la! http://Campagne.arthrite.ca"
     end
 
   end

@@ -29,7 +29,7 @@ You can goto [Facebook Developer Center](https://developers.facebook.com/apps) t
 
 To create a Facebook application, click "Create New App" on  the right top of the web page and follow the instruction to create one. During the process, give a name of the application. **Don't check "Yes, I would like free web hosting provided by Heroku" since our website cannot use the domain name provided by Heroku.** After you submit your creation request, you will be navigate to basic info page of the created app.
 
-On the basic info page, **click "Mobile Web" section and fill in the "Mobile Web URL" with your website url**. For example, use "http://campaign.goriete.com/". Then click "Save Changes" to save your changes.
+On the basic info page, **click "Mobile Web" section and fill in the "Mobile Web URL" with your website url**. For example, use "http://campaign.arthritis.ca/". Then click "Save Changes" to save your changes.
 
 **Whenever the URL of our application's website is changed, please edit the Facebook applicaton to reset the "Mobile Web URL".**
 

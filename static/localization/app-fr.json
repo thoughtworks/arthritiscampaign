@@ -10,7 +10,7 @@
   "flickr_gallery": "Galerie Flickr",
   "get_on_the_map": "Affichez-vous!",
   "pick_your_message": "Choisissez votre message",
-  "generate_your_image": "Générez votre image!",
+  "generate_your_image": "Créez votre image!",
   "share_your_image": "Partager une photo",
   "share_on_facebook": "Partager sur Facebook",
   "share_on_twitter": "Partager sur Twitter", 
@@ -19,8 +19,8 @@
   "continue": "Poursuivre",
   "watch_our_video": "Regardez notre vidéo",
   "view_our_manifesto": "Lisez notre manifeste",
-  "picture_posted_on_facebook": "Votre photo a été affichée sur votre profil Facebook.",
+  "picture_posted_on_facebook": "Votre photo s'affiche maintenant dans votre profil Facebook.",
   "close_window": "Fermer la fenêtre",
-  "window_will_be_closed_in_seconds": "Cette fenêtre sera fermée en quelques secondes ...",
+  "window_will_be_closed_in_seconds": "Cette fenêtre est en cours de fermeture...",
   "cancel":"Annuler"
 }

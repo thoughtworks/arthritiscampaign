@@ -35,6 +35,7 @@ end
 
 before do
   language =  params['language'] || request.cookies['userLanguage'] || 'en'
+  puts "***user language is #{language}"
   set :language, language
   set :language_suffix, language == 'en' ? '' : "-#{language}"
 end
@@ -61,7 +62,6 @@ post '/upload_from_mobile' do
 end
 
 post '/upload' do
-  puts "***********in upload...."
   unless is_an_image? params[:photo]
     session[:error] = "Please, upload an image"
     redirect '/'
@@ -71,17 +71,14 @@ post '/upload' do
   user_img = resize(file_name)
   photo = add_logo(user_img, params[:banner])
   photo.write(file_name)
-  puts "***********merged photo...."
 
   photo_id = flickr.upload file_name
-  puts "***********uploaded to flickr...."
 
   geo = get_geo(request.ip)
   flickr.set_location photo_id, geo[0], geo[1]
-   puts "***********set geoloactiona...."
 
   flickr.add_to_set photo_id 
-  redirect "/show/#{photo_id}"
+  redirect "/show/#{photo_id}?language=#{settings.language}"
 end
 
 get '/show/:photo_id' do
