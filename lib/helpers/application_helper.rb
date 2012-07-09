@@ -18,7 +18,8 @@ module Sinatra
     end
     
     def share_to_twitter_url(photo_url)
-      "https://twitter.com/intent/tweet?source=webclient&text=#{CGI.escape(twitter_message(photo_url))}&via=ArthritisSoc"
+      account = settings.language == 'fr' ? 'SOCIETEARTHRITE' : 'ArthritisSoc'
+      "https://twitter.com/intent/tweet?source=webclient&text=#{CGI.escape(twitter_message(photo_url))}&via=#{account}"
     end
 
 
