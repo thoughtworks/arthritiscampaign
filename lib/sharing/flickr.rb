@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'flickraw'
 
 module Sharing
@@ -10,7 +11,8 @@ module Sharing
     end
 
     def upload(file_name)
-      photo_id = client.upload_photo file_name, :is_public => true, :title => 'We Have Arthritis!', :tags => settings.campaign
+      title = settings.language == 'fr' ? 'Nous sommes atteints d’arthrite!' : 'We Have Arthritis!'
+      photo_id = client.upload_photo file_name, :is_public => true, :title => "#{title}", :tags => settings.campaign
       puts "#{file_name} uploaded to flickr." 
       photo_id
     end
