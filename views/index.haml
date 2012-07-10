@@ -12,9 +12,9 @@
       .banner-picker
         %h4.title{'data-localize' => 'pick_your_message'}Pick your message
         %center.controls
-          %img.active{:src => "/images/banners/banner1#{settings.language_suffix}.png", :banner => "banner1#{settings.language_suffix}"}
-          %img{:src => "/images/banners/banner2#{settings.language_suffix}.png", :banner => "banner2#{settings.language_suffix}"}
-          %img{:src => "/images/banners/banner3-small#{settings.language_suffix}.png", :banner => "banner3-small#{settings.language_suffix}"}
+          %img.active{:src => "/images/banners/no-padding/banner1#{settings.language_suffix}.png", :banner => "banner1#{settings.language_suffix}"}
+          %img{:src => "/images/banners/no-padding/banner2#{settings.language_suffix}.png", :banner => "banner2#{settings.language_suffix}"}
+          %img.round{:src => "/images/banners/no-padding/banner3-small#{settings.language_suffix}.png", :banner => "banner3-small#{settings.language_suffix}"}
         %input{:type => "hidden", :value => "banner1#{settings.language_suffix}", :name => "banner"}
     .modal-footer.generate
       %center
