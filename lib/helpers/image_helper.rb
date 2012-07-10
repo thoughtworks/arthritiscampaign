@@ -46,9 +46,9 @@ module Sinatra
     end
 
     def define_max_size(image, banner_path)
-      max_size = image[:width] * 1.0
+      max_size = image[:width] * 0.9
       max_size *= 0.7 if is_lanscape?(image) 
-      max_size *= 0.8 if is_small?(banner_path)
+      max_size *= 0.7 if is_small?(banner_path)
       max_size
     end
 
