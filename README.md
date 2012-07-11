@@ -145,7 +145,7 @@ The application has been accociated with a Heroku application at the moment when
 After you making some change on the local source code, you can test it locallly to make sure it works. Then you can commmit the change to the local git repository and also push to the origin git remote repository:
 
 	>git add .
-	>git ci -m "you commit comment here"
+	>git commit -m "you commit comment here"
 	>git push
 
 ### Push changes to Heroku
