@@ -9,27 +9,27 @@ class ImageHelperTest < Test::Unit::TestCase
   def test_use_middle_log_if_photo_is_a_square
     photo = { :width => 500, :height => 500 }
 
-    assert_equal define_max_size(photo, 'banner_path'), 240
+    assert_equal define_max_size(photo, 'banner_path'), 315
   end
 
   def test_use_middle_logr_if_photo_i_landscape
     photo = { :width => 200, :height => 100 }
 
-    assert_equal define_max_size(photo, 'banner_path'), 96
+    assert_equal define_max_size(photo, 'banner_path').to_i, 125
   end
 
  
   def test_use_big_logo_if_photo_is_portrait
     photo = { :width => 100, :height => 200 }
 
-    assert_equal define_max_size(photo, 'banner_path'), 80
+    assert_equal define_max_size(photo, 'banner_path'), 90
   end
 
   
   def test_use_small_logo_if_photo_is_small
     photo = { :width => 100, :height => 100 }
 
-    assert_equal define_max_size(photo, 'banner_small_path'), 24
+    assert_equal define_max_size(photo, 'banner_small_path').to_i, 44
   end
 
   def test_gravity_to_southeast_if_banner_is_small
