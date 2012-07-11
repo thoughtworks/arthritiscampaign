@@ -29,9 +29,6 @@ configure do
 
 end
 
-configure :production do
- # require 'newrelic_rpm'
-end
 
 before do
   language =  params['language'] || request.cookies['userLanguage'] || 'en'
@@ -51,15 +48,6 @@ get '/' do
   haml :index
 end
 
-post '/upload_from_mobile' do
-  tempfile = params['photo'][:tempfile]
-  file_name = tempfile.path
-  resize(file_name)
-  photo_id = flickr.upload file_name
-  geo = get_geo(request.ip)
-  flickr.set_location photo_id, geo[0], geo[1]
-  status(200)
-end
 
 post '/upload' do
   unless is_an_image? params[:photo]
