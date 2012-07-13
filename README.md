@@ -66,6 +66,10 @@ You can use [RubyInstaller](http://rubyinstaller.org/) to install ruby on Window
 
 **If your dev machine is in a Widows environment, I strongly suggest to run a linux virtual machine to set up the ruby environment since it could be very painful to run ruby under windows even though it is dorable.**
 
+### Install Imagemagick
+
+Our application depends on Imagemagick to convert images uploaded by users. Please reference [http://www.imagemagick.org/script/index.php](http://www.imagemagick.org/script/index.php) to install it.
+
 ### Install git
 Our code repository is git and you must have git installed.  You can reference [http://git-scm.com/book/en/Getting-Started-Installing-Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) to install it.
 
