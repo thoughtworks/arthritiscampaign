@@ -55,6 +55,9 @@ We use Heroku to deploy this application.
 
 If you don't have Hroke account, you need [create one](http://www.heroku.com/). 
 You can follow the [Quick Start](https://devcenter.heroku.com/articles/quickstart) to install the Heroku toolbelt and log in to Heroku from command line.
+After you successfully run 'heroku login', you need add your local ssh key to heroku server:
+
+	heroku keys:add ~/.ssh/id_rsa.pub
 
 ##Setup Dev Environment
 ### Install Ruby
