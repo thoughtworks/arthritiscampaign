@@ -323,17 +323,3 @@ Copyright 2012 Arthritis Society.
 The original code base is from [Israel Love Iran](https://github.com/rafaelpetry/israelovesiran).
 
 Written by Peter Zhao and Rafael Ferreira from Thoughtworks.
-
-
-  
-  
- 
-
-
-
-
-
-
-
-
-
