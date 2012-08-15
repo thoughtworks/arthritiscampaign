@@ -5,14 +5,18 @@
       %h3{'data-localize' => 'enter_to_win_personal_info'}  Enter to win: personal information
     .modal-body
       #user-info
-        %label{'data-localize' => 'first_name'} First Name:
-        %input#first-name{ :type => 'text', :name => 'first_name'}
-        %label{'data-localize' => 'last_name'} Last Name:
-        %input#last-name{ :type => 'text', :name => 'last_name'}
-        %label{'data-localize' => 'phone'} Phone Number:
-        %input#phone{ :type => 'text', :name => 'phone'}
-        %label{'data-localize' => 'email'} Email:
-        %input#email{ :type => 'text', :name => 'email'} 
+        .input-field
+          %label{'data-localize' => 'first_name'} First Name*:
+          %input#first-name{ :type => 'text', :name => 'first_name'}
+        .input-field
+          %label{'data-localize' => 'last_name'} Last Name*:
+          %input#last-name{ :type => 'text', :name => 'last_name'}
+        .input-field
+          %label{'data-localize' => 'phone'} Cell Phone*:
+          %input#phone{ :type => 'text', :name => 'phone'}
+        .input-field
+          %label{'data-localize' => 'email'} Email*:
+          %input#email{ :type => 'text', :name => 'email'} 
     .modal-footer.continue
       %center
         %button.btn.btn-primary.btn-large#continue-upload{ :type => 'button', :disabled => "disabled", 'data-localize' => 'continue' } Continue
@@ -58,6 +62,35 @@
        $("#upload-photo-container").modal('show');
      });
 
-  
+     var validation = function() {
+      var emailRule =/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+      var phoneRule =/^([0-9]( |-)?)?(\(?[0-9]{3}\)?|[0-9]{3})( |-)?([0-9]{3}( |-)?[0-9]{4}|[a-zA-Z0-9]{7})$/;
+      var firstNameRule =/^./;
+      var lastNameRule =/^./;
+      validate_field($("#email"), emailRule, "Email is not valid.");
+      validate_field($("#phone"), phoneRule, "Phone number is not valid.");
+      validate_field($("#first-name"), firstNameRule, "First name must not be empty.");
+      validate_field($("#last-name"), lastNameRule, "Last name must not be empty.");
+
+      if($(".input-field input.invalid").length > 0)
+         $("#continue-upload").attr("disabled","disabled");
+      else
+         $("#continue-upload").removeAttr("disabled");
+    };
+
+    $(".input-field input").keypress(validation);
+    $(".input-field input").blur(validation);
+
+    function validate_field(inputField, regexRule, errorMessage) {
+      if(!inputField.val().match(regexRule)) {
+        inputField.addClass('invalid');
+        if(inputField.parent().find("span").length == 0)
+          inputField.parent().append('<span>' + errorMessage + '</span>');
+      }else{
+        inputField.removeClass('invalid');
+        inputField.parent().find("span").remove();
+      }
+    };
+
   });
 
