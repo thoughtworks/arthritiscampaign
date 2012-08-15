@@ -20,6 +20,7 @@ Once your application is created, you can click the link "App By You" which is o
 
 Go to [http://idgettr.com/](http://idgettr.com/) and following the instruction to get your Flickr user ID. Write down it for future use.
 
+Create a photo set in flickr - you will need your photo set ID for the application. You can find your photo set id by viewing your photo set, it will be the number at the end of the URL.
 ### Facebook
 This application uses a Facebook applicaton to post photos on users behalf. Certainly, when users share the photo on Facebook, users need authorize our Facebook application to post on users behalf.
 
@@ -53,7 +54,7 @@ You can got [Google Analytics](http://www.google.com/analytics/) to create an ac
 ###Heroku
 We use Heroku to deploy this application.
 
-If you don't have Hroke account, you need [create one](http://www.heroku.com/). 
+If you don't have Heroku account, you need to [create one](http://www.heroku.com/). 
 You can follow the [Quick Start](https://devcenter.heroku.com/articles/quickstart) to install the Heroku toolbelt and log in to Heroku from command line.
 After you successfully run 'heroku login', you need add your local ssh key to heroku server:
 
