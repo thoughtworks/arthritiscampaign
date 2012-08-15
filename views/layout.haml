@@ -36,14 +36,20 @@
               %img.sample{:src => "/images/banners/no-padding/banner2#{settings.language_suffix}.png"}
               %img.sample.small{:src => "/images/banners/no-padding/banner3-small#{settings.language_suffix}.png"}
 
-            #disclaimer.clear
+            .disclaimer.clear
               #disclaimer-description
                 %p= t.i_agree_to_allow_
                 %p.hint= t.required_fields
               #agree-check-container
                 %input#agree-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check"}
                 %a#agree-doc{:href => "/doc/PermissionIsRequired#{settings.language_suffix}.pdf", :target => '_blank'}= t.user_permission_release
-            %center.clear
+            .disclaimer.clear
+              .disclaimer-description
+                %p= t.i_agree_to_contest_
+              .agree-check-container
+                %input.agree#agree-contest-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check-contest"}
+                %a#agree-contest-doc{:href => "", :target => '_blank'}= t.contest_document_link
+                %center.clear
               %button.btn.btn-large.btn-primary#upload-photo{:disabled => 'disabled' }= t.upload_your_photo
         #right-side-header
           #right-container

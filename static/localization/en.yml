@@ -28,4 +28,15 @@ text:
   twitter_message: "Please support 4.6 million Canadians living with arthritis! Watch the video & share the infographic! http://wehavearthritis.ca"
   tumblr_message: "I support 4.6 million Canadians living with arthritis! Do you?"
   facebook_message: "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://wehavearthritis.ca/"
+  i_agree_to_contest_: "I agree to abide by the official rules and regulations:*"
+  contest_document_link: 'The Arthritis "Share Your Photo" Contest Official Rules and Regulations'
+  enter_to_win_personal_info: "Enter to win: personal information"
+  first_name: "First Name:*" 
+  last_name: "Last Name:*"
+  phone: "Phone Number:*"
+  email: "Email:*"
+  invalid_email: "Email is not valid."
+  invalid_phone_number: "Phone number is not valid."
+  invalid_first_name: "First name must not be empty."
+  invalid_last_name: "Last name must not be empty."
 formats:
