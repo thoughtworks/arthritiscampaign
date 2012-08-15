@@ -1,7 +1,25 @@
 %form{ :action => "/upload?language=#{settings.language}", :method => 'post', :enctype => "multipart/form-data" }
-  .modal.hide#upload-photo-container
+  .modal.hide#collect-user-info
     .modal-header
       %button.close{ :type => "button", 'data-dismiss' =>"modal"}×
+      %h3{'data-localize' => 'enter_to_win_personal_info'}  Enter to win: personal information
+    .modal-body
+      #user-info
+        %label{'data-localize' => 'first_name'} First Name:
+        %input#first-name{ :type => 'text', :name => 'first_name'}
+        %label{'data-localize' => 'last_name'} Last Name:
+        %input#last-name{ :type => 'text', :name => 'last_name'}
+        %label{'data-localize' => 'phone'} Phone Number:
+        %input#phone{ :type => 'text', :name => 'phone'}
+        %label{'data-localize' => 'email'} Email:
+        %input#email{ :type => 'text', :name => 'email'} 
+    .modal-footer.continue
+      %center
+        %button.btn.btn-primary.btn-large#continue-upload{ :type => 'button', :disabled => "disabled", 'data-localize' => 'continue' } Continue
+
+  .modal.hide#upload-photo-container
+    .modal-header
+      %button.close{ :type => "button", 'data-dismiss' =>"modal"}
       %h3{'data-localize' => 'upload_your_photo'}  Upload your photo
     .modal-body
       .choose-picture
@@ -24,14 +42,22 @@
   $(document).ready(function() {
     $("#upload-photo").click(function(){
       $("#main-container")[0].scrollIntoView();
-      $("#upload-photo-container").modal('show');
+      $("#collect-user-info").modal('show');
     });
     
-    $("#agree-check").change(function(){
-      if(this.checked)
+    $(".agree").change(function(){
+      if($("#agree-check:checked").length && $("#agree-contest-check:checked").length)
         $("#upload-photo").removeAttr("disabled");
       else
         $("#upload-photo").attr("disabled", "disabled");
     });
+
+  
+     $("#continue-upload").click(function(){
+       $("#collect-user-info").modal('hide');
+       $("#upload-photo-container").modal('show');
+     });
+
+  
   });
 

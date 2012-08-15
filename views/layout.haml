@@ -38,14 +38,22 @@
               %center
                 %img.sample.small{:src => "/images/banners/no-padding/banner3-small#{settings.language_suffix}.png"}
 
-            #disclaimer.clear
-              #disclaimer-description
+            .disclaimer.clear
+              .disclaimer-description
                 %p{'data-localize' =>'i_agree_to_allow_'}I agree to allow The Arthritis Society to use my photograph as mentioned in the statement linked to this checkbox:*
                 %p.hint{ 'data-localize' => 'required_fields'}* required field
-              #agree-check-container
-                %input#agree-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check"}
+              .agree-check-container
+                %input.agree#agree-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check"}
                 %a#agree-doc{:href => "/doc/PermissionIsRequired#{settings.language_suffix}.pdf", 'data-localize' => 'user_permission_release', :target => '_blank'} User permission release
             %center.clear
+            .disclaimer.clear
+              .disclaimer-description
+                %p{'data-localize' =>'i_agree_to_contest_'}I agree to abide by the official rules and regulations:*
+              .agree-check-container
+                %input.agree#agree-contest-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check-contest"}
+                %a#agree-doc{:href => "", 'data-localize' => 'contest-document-link', :target => '_blank'}The Arthritis "Share Your Photo" Contest Official Rules and Regulations
+            %center.clear
+            
               %button.btn.btn-large.btn-primary#upload-photo{:disabled => 'disabled', 'data-localize' => 'upload_your_photo'} Upload Your Photo
         #right-side-header
           #right-container
