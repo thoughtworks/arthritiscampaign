@@ -27,6 +27,11 @@ module Sharing
       client.photosets.addPhoto :photo_id => photo_id, :photoset_id => settings.flickr_photoset_id if settings.flickr_photoset_id
     end 
 
+    def photo_thumbnail_url(photo_id)
+      info = client.photos.getInfo(:photo_id => photo_id)
+      FlickRaw.url_t(info)
+    end
+
     def photo_url(photo_id)
       info = client.photos.getInfo(:photo_id => photo_id)
       FlickRaw.url_b(info)

@@ -1,0 +1,20 @@
+#submissions
+  %h2 Photo Contest Submissions
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Photo
+        %th First Name
+        %th Last Name
+        %th Phone Number
+        %th Email
+    %tbody
+      - submissions.each do |submission|
+        %tr
+          %td
+            %a{:href => submission['photo_url']}
+              %img{:src => submission['photo_thumbnail_url']}
+          %td= submission['first_name']
+          %td= submission['last_name']
+          %td= submission['phone']
+          %td= submission['email']

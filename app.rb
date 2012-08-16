@@ -51,6 +51,14 @@ get '/' do
   haml :index
 end
 
+get '/admin' do
+  submissions = Repository.submissions
+  submissions.each do |submission|
+    submission['photo_url'] = flickr.photo_url(submission['photo_id'])
+    submission['photo_thumbnail_url'] = flickr.photo_thumbnail_url(submission['photo_id'])
+  end
+  haml :admin, :locals => { :submissions => submissions}, :layout => :simple_layout
+end
 
 post '/upload' do
   unless is_an_image? params[:photo]
@@ -87,7 +95,7 @@ get '/share/facebook/:photo_id' do
 end
 
 get '/share/facebook/message/:photo_id' do
-  haml :facebook_message, :layout => :facebook_layout, :locals => { :photo_id => params[:photo_id]}
+  haml :facebook_message, :layout => :simple_layout, :locals => { :photo_id => params[:photo_id]}
 end
 
 get '/callback/facebook/:photo_id' do
@@ -96,7 +104,7 @@ get '/callback/facebook/:photo_id' do
   callback_url = facebook_callback_url(params[:photo_id])
   facebook.share_photo(photo, session[:fb_message], params[:code], callback_url)
   session[:fb_message] = nil
-  haml :facebook_shared, :layout => :facebook_layout
+  haml :facebook_shared, :layout => :simple_layout
 end
 
 get '/max_width' do
