@@ -34,7 +34,7 @@ end
 
 before do
   language =  params['language'] || request.cookies['userLanguage'] || 'en'
-  puts "***user language is #{language}"
+  puts "***user language is #{language} for #{request.url}"
   set :language, language
   set :language_suffix, language == 'en' ? '' : "-#{language}"
   Localize.locale = language.to_sym
@@ -42,8 +42,7 @@ end
 
 after do
   response.headers['X-Frame-Options'] = 'GOFORIT' 
-  response.set_cookie("userLanguage", :value => settings.language,
-                    :expires => Time.new + 60*60*24)
+  response.set_cookie("userLanguage", :value => settings.language, :expires => Time.new + 60*60*24) if(params['language'])
 
 end
 
