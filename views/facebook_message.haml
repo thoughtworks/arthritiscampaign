@@ -1,4 +1,4 @@
-%form#facebook-form{:method => 'get', :action =>"/share/facebook/#{photo_id}"}
+%form#facebook-form{:method => 'get', :action =>"/share/facebook/#{photo_id}?language=#{settings.lauguage}"}
   #share_facebook
     %center
       %h3= t.share_on_facebook
