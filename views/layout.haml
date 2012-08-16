@@ -13,7 +13,6 @@
     %script{ :type => 'text/javascript', :src => 'http://platform.tumblr.com/v1/share.js'}
     %script{ :type => 'text/javascript', :src => '/javascripts/flickrshow-7.2.min.js'}
     %script{ :type => 'text/javascript', :src => "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_API_KEY']}&sensor=false&language=#{settings.language}"}
-    %script{ :type => 'text/javascript', :src => "/javascripts/jquery.localize.js"}
   %body
     #main-container
       #session-info
@@ -35,8 +34,7 @@
             #sample-images.clear
               %img.sample{:src => "/images/banners/no-padding/banner1#{settings.language_suffix}.png"}
               %img.sample{:src => "/images/banners/no-padding/banner2#{settings.language_suffix}.png"}
-              %center
-                %img.sample.small{:src => "/images/banners/no-padding/banner3-small#{settings.language_suffix}.png"}
+              %img.sample.small{:src => "/images/banners/no-padding/banner3-small#{settings.language_suffix}.png"}
 
             #disclaimer.clear
               #disclaimer-description
