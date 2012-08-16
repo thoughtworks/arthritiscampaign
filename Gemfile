@@ -10,6 +10,8 @@ gem 'rake', '~> 0.9.2'
 gem 'newrelic_rpm'
 gem 'xml-simple'
 gem 'localize'
+gem 'mongo'
+gem 'bson_ext'
 
 group :development, :test do
   gem 'pry'
