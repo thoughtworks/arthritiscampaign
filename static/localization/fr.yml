@@ -25,4 +25,7 @@ text:
   picture_posted_on_facebook: "Votre photo s'affiche maintenant dans votre profil Facebook."
   close_window: "Fermer la fenêtre"
   window_will_be_closed_in_seconds: "Cette fenêtre est en cours de fermeture..."
+  twitter_message: "Apportez votre soutien aux 4,6 M de Canadiens atteints d’arthrite! Regardez la vidéo! http://couragearthrite.ca"
+  tumblr_message: "J’apporte mon soutien aux 4,6 millions de Canadiens souffrant d’arthrite! Et vous?"
+  facebook_message: "Apportez votre soutien aux 4,6 millions de Canadiens souffrant d’arthrite! Regardez la vidéo et partagez-la! http://couragearthrite.ca/"
 formats:

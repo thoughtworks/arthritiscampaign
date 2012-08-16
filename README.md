@@ -200,28 +200,7 @@ Edit app.rb file under the source code repository root folder. Replace "arthriti
 
 to set a new tag.
 
-### Change sharing messages
-To change the sharing messages for Facebook, Twitter and Tumblr, edit "lib/helpers/application_helper.rb":
 
-	def facebook_message
-       settings.language == 'en' ?
-         "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://www.goriete.com/page.aspx?pid=6324"
-         : "S'il vous plaît soutenir 4,6 millions de Canadiens vivant avec l'arthrite! Regardez la vidéo et partager l'infographie! http://www.goriete.com/page.aspx?pid=6324"
-    end
-
-    def tumblr_message
-      settings.language == 'en' ?
-        "I support 4.6 million Canadians living with arthritis! Do you?"
-        : "Je soutiens 4,6 millions de Canadiens vivant avec l'arthrite! Et vous?"
-    end
-     
-    def twitter_message(photo_url)
-      settings.language == 'en' ?
-        "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://www.goriete.com/page.aspx?pid=6324"
-        : "S'il vous plaît soutenir 4,6 millions de Canadiens vivant avec l'arthrite! Regardez la vidéo et partager l'infographie!"
-    end
-
-Change the return value of those three methods as shown in above code block for both English and French.
 
 ### Change banners
 

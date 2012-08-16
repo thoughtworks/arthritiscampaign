@@ -24,5 +24,8 @@ text:
   cancel: "Cancel"
   picture_posted_on_facebook: "Your picture has been posted on your Facebook profile."
   close_window: "Close Window"
-  window_will_be_closed_in_seconds: This window will be closed in seconds..."
+  window_will_be_closed_in_seconds: "This window will be closed in seconds..."
+  twitter_message: "Please support 4.6 million Canadians living with arthritis! Watch the video & share the infographic! http://wehavearthritis.ca"
+  tumblr_message: "I support 4.6 million Canadians living with arthritis! Do you?"
+  facebook_message: "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://wehavearthritis.ca/"
 formats:

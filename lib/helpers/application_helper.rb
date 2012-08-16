@@ -13,13 +13,13 @@ module Sinatra
 
     def share_to_tumblr_url(photo_url)
       "http://www.tumblr.com/share/photo?source=#{CGI.escape(photo_url)}" +
-        "&caption=#{CGI.escape(tumblr_message)}" +
+        "&caption=#{CGI.escape(t.tumblr_message)}" +
         "&click_thru=#{CGI.escape(request.url)}"
     end
     
     def share_to_twitter_url(photo_url)
       account = settings.language == 'fr' ? 'SOCIETEARTHRITE' : 'ArthritisSoc'
-      "https://twitter.com/intent/tweet?source=webclient&text=#{CGI.escape(twitter_message(photo_url))}&via=#{account}"
+      "https://twitter.com/intent/tweet?source=webclient&text=#{CGI.escape(t.twitter_message(tiny_url(photo_url)))}&via=#{account}"
     end
 
 
@@ -31,24 +31,6 @@ module Sinatra
       @flickr_sharing ||= Sharing::Flickr.new(settings.flickr_api_key, settings.flickr_secret, settings.flickr_access_token, settings.flickr_access_secret)
     end
     
-    def facebook_message
-       settings.language == 'en' ?
-         "Please support 4.6 million Canadians living with arthritis! Watch the video and share the infographic! http://wehavearthritis.ca/"
-         : "Apportez votre soutien aux 4,6 millions de Canadiens souffrant d’arthrite! Regardez la vidéo et partagez-la! http://couragearthrite.ca/"
-    end
-
-    def tumblr_message
-      settings.language == 'en' ?
-        "I support 4.6 million Canadians living with arthritis! Do you?"
-        : "J’apporte mon soutien aux 4,6 millions de Canadiens souffrant d’arthrite! Et vous?"
-    end
-     
-    def twitter_message(photo_url)
-      settings.language == 'en' ?
-        "Please support 4.6 million Canadians living with arthritis! Watch the video & share the infographic! http://wehavearthritis.ca"
-        : "Apportez votre soutien aux 4,6 M de Canadiens atteints d’arthrite! Regardez la vidéo! http://couragearthrite.ca"
-    end
-
   end
   helpers ApplicationHelper
 end
