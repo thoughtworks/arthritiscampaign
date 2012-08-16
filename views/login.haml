@@ -1,0 +1,10 @@
+%h2 Log in
+#session-info
+  - if session[:error]
+    .alert.alert-error= session[:error]
+
+%form{ :action => "/authenticate", :method => "get"}
+  %lable Your password:
+  %input{:type => 'password', :name => 'password'}
+  %br
+  %input.btn.btn-primary.btn-large{:type => 'submit', :value => 'Submit'}

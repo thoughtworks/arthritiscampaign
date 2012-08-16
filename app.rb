@@ -47,11 +47,33 @@ after do
 
 end
 
+set(:auth) do |*roles|   
+condition do
+    unless session[:logged_in]
+      redirect "/login", 303
+    end
+  end
+end
+
 get '/' do
   haml :index
 end
 
-get '/admin' do
+get '/login' do
+  haml :login, :layout => :simple_layout
+end
+
+get '/authenticate' do
+  unless params[:password] == ENV['ARTHRITIS_ADMIN_CODE'] 
+    session[:error] = "Invalid password!"
+    redirect '/login', 303
+  end
+  session[:error] = nil
+  session[:logged_in] = true
+  redirect "/admin"
+end
+
+get '/admin' , :auth => :admin do
   submissions = Repository.submissions
   submissions.each do |submission|
     submission['photo_url'] = flickr.photo_url(submission['photo_id'])
