@@ -5,14 +5,18 @@
       %h3= t.enter_to_win_personal_info
       .modal-body
       #user-info
-        %label= t.first_name
-        %input#first-name{ :type => 'text', :name => 'first_name'}
-        %label= t.last_name
-        %input#last-name{ :type => 'text', :name => 'last_name'}
-        %label= t.phone
-        %input#phone{ :type => 'text', :name => 'phone'}
-        %label= t.email
-        %input#email{ :type => 'text', :name => 'email'} 
+        .input-field 
+          %label= t.first_name
+          %input#first-name{ :type => 'text', :name => 'first_name'}
+        .input-field
+          %label= t.last_name
+          %input#last-name{ :type => 'text', :name => 'last_name'}
+        .input-field 
+          %label= t.phone
+          %input#phone{ :type => 'text', :name => 'phone'}
+        .input-field 
+          %label= t.email
+          %input#email{ :type => 'text', :name => 'email'} 
     .modal-footer.continue
       %center
         %button.btn.btn-primary.btn-large#continue-upload{ :type => 'button', :disabled => "disabled"}= t.continue
@@ -45,14 +49,7 @@
       $("#collect-user-info").modal('show');
     });
     
-    $(".agree").change(function(){
-      if($("#agree-check:checked").length && $("#agree-contest-check:checked").length)
-        $("#upload-photo").removeAttr("disabled");
-      else
-        $("#upload-photo").attr("disabled", "disabled");
-    });
-
-  
+     
      $("#continue-upload").click(function(){
        $("#collect-user-info").modal('hide');
        $("#upload-photo-container").modal('show');

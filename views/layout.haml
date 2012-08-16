@@ -41,16 +41,16 @@
                 %p= t.i_agree_to_allow_
                 %p.hint= t.required_fields
               #agree-check-container
-                %input#agree-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check"}
-                %a#agree-doc{:href => "/doc/PermissionIsRequired#{settings.language_suffix}.pdf", :target => '_blank'}= t.user_permission_release
+                %input.agree#agree-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check"}
+                %a{:href => "/doc/PermissionIsRequired#{settings.language_suffix}.pdf", :target => '_blank'}= t.user_permission_release
             .disclaimer.clear
               .disclaimer-description
                 %p= t.i_agree_to_contest_
               .agree-check-container
                 %input.agree#agree-contest-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check-contest"}
-                %a#agree-contest-doc{:href => "", :target => '_blank'}= t.contest_document_link
+                %a{:href => "", :target => '_blank'}= t.contest_document_link
                 %center.clear
-              %button.btn.btn-large.btn-primary#upload-photo{:disabled => 'disabled' }= t.upload_your_photo
+                  %button.btn.btn-large.btn-primary#upload-photo{:disabled => 'disabled' }= t.upload_your_photo
         #right-side-header
           #right-container
             %h2= t.flickr_gallery
@@ -90,3 +90,12 @@
       var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
       var georssLayer = new google.maps.KmlLayer('http://api.flickr.com/services/feeds/geo/?id=#{settings.flickr_user_id}&lang=en-us&format=feed-georss');
       georssLayer.setMap(map);
+
+      $(document).ready(function() {
+          $(".agree").change(function(){
+          if($("#agree-check:checked").length && $("#agree-contest-check:checked").length)
+            $("#upload-photo").removeAttr("disabled");
+          else
+            $("#upload-photo").attr("disabled", "disabled");
+        });
+      });
