@@ -9,6 +9,7 @@ require 'helpers/application_helper'
 require 'helpers/image_helper'
 require 'helpers/url_helper'
 require 'helpers/geo_helper'
+require_relative './lib/repository'
 
 configure do
   enable :sessions
@@ -67,7 +68,9 @@ post '/upload' do
   geo = get_geo(request.ip)
   flickr.set_location photo_id, geo[0], geo[1]
 
-  flickr.add_to_set photo_id 
+  flickr.add_to_set photo_id
+  Repository.save_submission({:first_name=> params[:first_name], :last_name=> params[:last_name],
+  :phone=> params[:phone], :email=> params[:email], :photo_id=> photo_id, :timestamp => Time.new})
   redirect "/show/#{photo_id}?language=#{settings.language}"
 end
 
