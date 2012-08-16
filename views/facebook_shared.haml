@@ -1,8 +1,7 @@
 %center
-  %h3.alert.alert-success#facebook-confirm{'data-localize' =>'picture_posted_on_facebook'} Your picture has been posted on your Facebook profile.
-  %a{:href =>"", :OnClick => "window.close()", 'data-localize' => 'close_window'}Close Window
+  %h3.alert.alert-success#facebook-confirm= t.picture_posted_on_facebook
+  %a{:href =>"", :OnClick => "window.close()"}= t.close_window
   %br
-  %dev{'data-localize' =>"window_will_be_closed_in_seconds"} This window will be closed in seconds...
-
+  %dev= t.window_will_be_closed_in_seconds
 :javascript
   setTimeout("self.close();",5000);

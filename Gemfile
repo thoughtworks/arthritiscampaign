@@ -9,6 +9,7 @@ gem 'mini_magick', '~> 3.4'
 gem 'rake', '~> 0.9.2'
 gem 'newrelic_rpm'
 gem 'xml-simple'
+gem 'localize'
 
 group :development, :test do
   gem 'pry'

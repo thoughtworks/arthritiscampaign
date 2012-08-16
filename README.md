@@ -266,16 +266,9 @@ You can add an URL parameter to set user language. For example, use "http://you_
 **Once you set language through URL parameter, server will set a cookie to keep the setting on client side. The user language setting will be kept until you set the language through URL parameter again.**
 
 ### Translate static text
-We are using [JQuery localize plugin](https://github.com/coderifous/jquery-localize) to translate static text on webpages.
+We are using [Ruby localize](https://github.com/Aejis/localize) to translate static text.
 
-The file "static/localization/app-fr.json" is a json data file which contains all the phrases' French translation: 
-
-	{
-  	"we_have_arthritis": "Nous avons l'arthrite!",
- 	 "join_the_arthritis_society_": "Rejoignez la campagne spéciale La Société d'arthrite pour sensibiliser sur l'impact de la maladie sur 4,6 millions de Canadiens vivant avec l'arthrite. L'arthrite peut toucher n'importe qui, il affecte les bébés et grondé, ainsi que les personnes dans la fleur de leur vie. Près de trois personnes sur cinq atteintes d'arthrite sont en âge de travailler (moins de 65 ans).",
-    	….
-
-Please note that sharing messages are not translated in this file but in the "lib/helpers/application_helper.rb".
+The files "static/localization/fr.yml" and "static/localization/en.yml" are the translation files.
 
 ###Translation images
 We localize the images by dynamically change the img.src directly in the view using Ruby code. 
@@ -299,17 +292,7 @@ If the resouce pointed by the "/images/manifesto.jpg" need a French translation,
 
 **Note: The ruby variable settings.language_suffix will be empty if user language is English, but '-fr' for French.**
 
-###Translate video
-Since the URLs of English video and French video are not following the pattern of "url/url-fr", a custom HTML property and Javascript are used to set the url based on user language setting. In the file, views/layout.haml:
 
-	  %iframe#video{ :src => "http://player.vimeo.com/video/42697821", 'src-fr' => "http://player.vimeo.com/video/42697820"}
-
-custom property 'src-fr' is the video URL for French. 
-
-	 if(language == 'fr'){
-          $("#video").attr("src", $("#video").attr("src-fr"));
-        }
-In the same file the embeded Javascript will reset src property based on the language setting.
 
 ##Credits & Licensing
 Copyright 2012 Arthritis Society.

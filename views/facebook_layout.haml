@@ -12,10 +12,4 @@
     #facebook-content
       = yield
 
-:javascript
-  //localization
-  $(document).ready(function(){
-    language = "#{settings.language}";
-    $("[data-localize]").localize("app", { language: language, pathPrefix:"/localization" ,skipLanguage: /^en/ });
-  });
 

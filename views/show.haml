@@ -1,17 +1,16 @@
 .modal.hide#share-image-container
   .modal-header
     %button.close{ :type => "button", 'data-dismiss' =>"modal"}×
-    %h3{ 'data-localize' => 'share_your_image'} Share your image
+    %h3= t.share_your_image
   .modal-body
     - if session[:sharing_success]
       .alert.alert-success= session[:sharing_success]
     %img.user-image.row-fluid{ :src => photo_url }
   .modal-footer#share-box
     %center
-      %a.btn.btn-large.btn-primary#launch_share_fb{'data-localize' => 'share_on_facebook'} Share on Facebook
-      %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_twitter_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')", 'data-localize' => 'share_on_twitter' } Share on Twitter
-      %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_tumblr_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')", 'data-localize' => 'share_on_tumblr' } Share on Tumblr
-    
+      %a.btn.btn-large.btn-primary#launch_share_fb= t.share_on_facebook
+      %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_twitter_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')"}= t.share_on_twitter
+      %a.btn.btn-large.btn-primary{ :onclick => "window.open('#{share_to_tumblr_url(photo_url)}', 't', 'toolbar=0,resizable=0,status=1,width=450,height=430')"}= t.share_on_tumblr    
 
 
 :javascript

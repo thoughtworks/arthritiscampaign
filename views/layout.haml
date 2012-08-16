@@ -27,11 +27,11 @@
       #header
         #left-side-header
           #left-container
-            %h1{'data-localize' => 'we_have_arthritis'}We Have Arthritis!
-            %h1{'data-localize' => 'arthritis_does_not_have_us'}Arthritis doesn’t have us.
-            %p{'data-localize' => 'join_the_arthritis_society_'}Join The Arthritis Society’s special campaign to raise awareness about the impact of the disease on 4.6 million Canadian living with the arthritis. Arthritis can affect anyone; it affects babies and children, as well as people in the prime of their lives. Nearly three of every five people with arthritis are of working age (under 65).
-            %h2{'data-localize' => 'add_picture_to_show_support_'}Add your picture to show your support!
-            %p{'data-localize' => 'create_and_share_photo_'}Create and share your photo using the tool below. Your photo will be posted on our Flickr online gallery, and you will also be able to share it on Facebook, Twitter and Tumblr.
+            %h1= t.we_have_arthritis
+            %h1= t.arthritis_does_not_have_us
+            %p= t.join_the_arthritis_society_
+            %h2= t.add_picture_to_show_support_
+            %p= t.create_and_share_photo_
             #sample-images.clear
               %img.sample{:src => "/images/banners/no-padding/banner1#{settings.language_suffix}.png"}
               %img.sample{:src => "/images/banners/no-padding/banner2#{settings.language_suffix}.png"}
@@ -40,23 +40,23 @@
 
             #disclaimer.clear
               #disclaimer-description
-                %p{'data-localize' =>'i_agree_to_allow_'}I agree to allow The Arthritis Society to use my photograph as mentioned in the statement linked to this checkbox:*
-                %p.hint{ 'data-localize' => 'required_fields'}* required field
+                %p= t.i_agree_to_allow_
+                %p.hint= t.required_fields
               #agree-check-container
                 %input#agree-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check"}
-                %a#agree-doc{:href => "/doc/PermissionIsRequired#{settings.language_suffix}.pdf", 'data-localize' => 'user_permission_release', :target => '_blank'} User permission release
+                %a#agree-doc{:href => "/doc/PermissionIsRequired#{settings.language_suffix}.pdf", :target => '_blank'}= t.user_permission_release
             %center.clear
-              %button.btn.btn-large.btn-primary#upload-photo{:disabled => 'disabled', 'data-localize' => 'upload_your_photo'} Upload Your Photo
+              %button.btn.btn-large.btn-primary#upload-photo{:disabled => 'disabled' }= t.upload_your_photo
         #right-side-header
           #right-container
-            %h2{ 'data-localize' => 'flickr_gallery'}Flickr Gallery
+            %h2= t.flickr_gallery
             #flickr-ss
-            %h2{ 'data-localize' => 'get_on_the_map'}Get on the map!
+            %h2= t.get_on_the_map
             #map-canvas
-            %h2{ 'data-localize' => 'watch_our_video'}Watch Our Video
-            %iframe#video{ :src => "http://player.vimeo.com/video/42697821", 'src-fr' => "http://player.vimeo.com/video/42697820"}
+            %h2= t.watch_our_video
+            %iframe#video{ :src => "#{t.video_source}"}
             %a#view-manifesto{ :href => "/images/manifesto#{settings.language_suffix}.jpg", :target =>"_blank"}
-              %h2{'data-localize' => 'view_our_manifesto'}View Our Manifesto
+              %h2= t.view_our_manifesto
               %center
                 %img{:src => "/images/manifesto-thumb#{settings.language_suffix}.jpg"}
       #facebook-content
@@ -72,18 +72,6 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
-      
-      //localization
-      $(document).ready(function(){
-        language = "#{settings.language}";
-        $("[data-localize]").localize("app", { language: language, pathPrefix:"/localization" ,skipLanguage: /^en/ });
-        
-        if(language == 'fr'){
-          $("#video").attr("src", $("#video").attr("src-fr"));
-        }
-      });
-     
- 
        
       //slide show
       flickrshow('flickr-ss', { user: "#{settings.flickr_user_id}", tags: "#{settings.campaign}", autoplay: true, license: '' }); 

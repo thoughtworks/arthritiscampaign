@@ -2,7 +2,7 @@
   .modal.hide#upload-photo-container
     .modal-header
       %button.close{ :type => "button", 'data-dismiss' =>"modal"}×
-      %h3{'data-localize' => 'upload_your_photo'}  Upload your photo
+      %h3= t.upload_your_photo
     .modal-body
       .choose-picture
         %input#choose-picture{ :type => 'file', :name => 'photo'}
@@ -10,7 +10,7 @@
           #banner
           #picture
       .banner-picker
-        %h4.title{'data-localize' => 'pick_your_message'}Pick your message
+        %h4.title= t.pick_your_message
         %center.controls
           %img.active{:src => "/images/banners/no-padding/banner1#{settings.language_suffix}.png", :banner => "banner1#{settings.language_suffix}"}
           %img{:src => "/images/banners/no-padding/banner2#{settings.language_suffix}.png", :banner => "banner2#{settings.language_suffix}"}
@@ -18,7 +18,7 @@
         %input{:type => "hidden", :value => "banner1#{settings.language_suffix}", :name => "banner"}
     .modal-footer.generate
       %center
-        %button.btn.btn-primary.btn-large#generate-btn{ :type => 'submit', :disabled => "disabled", 'data-localize' => 'generate_your_image' } Generate your image!
+        %button.btn.btn-primary.btn-large#generate-btn{ :type => 'submit', :disabled => "disabled"}= t.generate_your_image 
 %script{ :type => 'text/javascript', :src => '/javascripts/picture-loader.js' }
 :javascript
   $(document).ready(function() {

@@ -4,6 +4,8 @@ require 'rubygems'
 require 'sinatra'
 require 'haml'
 require 'sass'
+require 'localize'
+require 'localize/sinatra'
 require 'helpers/application_helper'
 require 'helpers/image_helper'
 require 'helpers/url_helper'
@@ -26,7 +28,8 @@ configure do
   set :fb_app_secret, ENV['FB_APP_SECRET']
   set :google_api_key, ENV['GOOGLE_API_KEY']
   
-
+  Localize.location = 'static/localization/'
+  Localize.store = :yaml
 end
 
 
@@ -35,6 +38,7 @@ before do
   puts "***user language is #{language}"
   set :language, language
   set :language_suffix, language == 'en' ? '' : "-#{language}"
+  Localize.locale = language.to_sym
 end
 
 after do
