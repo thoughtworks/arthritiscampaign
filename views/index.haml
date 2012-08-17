@@ -17,6 +17,24 @@
         .input-field 
           %label= t.email
           %input#email{ :type => 'text', :name => 'email'} 
+        .input-field 
+          %label= t.province
+          %select#province{:name => 'province'} 
+            %option{:value => ""}
+            %option{:value => "#{t.alberta}"}= t.alberta
+            %option{:value => "#{t.british_columbia}"}= t.british_columbia
+            %option{:value => "#{t.manitoba}"}= t.manitoba
+            %option{:value => "#{t.new_brunswick}"}= t.new_brunswick
+            %option{:value => "#{t.newfoundland_labrador}"}= t.newfoundland_labrador
+            %option{:value => "#{t.northwest_territories}"}= t.northwest_territories
+            %option{:value => "#{t.novq_scotia}"}= t.novq_scotia
+            %option{:value => "#{t.nunavut}"}= t.nunavut
+            %option{:value => "#{t.ontario}"}= t.ontario
+            %option{:value => "#{t.pei}"}= t.pei
+            %option{:value => "#{t.quebec}"}= t.quebec
+            %option{:value => "#{t.saskatchewan}"}= t.saskatchewan
+            %option{:value => "#{t.yukon}"}= t.yukon
+ 
     .modal-footer.continue
       %center
         %button.btn.btn-primary.btn-large#continue-upload{ :type => 'button', :disabled => "disabled"}= t.continue
@@ -47,6 +65,7 @@
     $("#upload-photo").click(function(){
       $("#main-container")[0].scrollIntoView();
       $("#collect-user-info").modal('show');
+      $("#first-name").focus();
     });
     
      

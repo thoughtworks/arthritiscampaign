@@ -12,6 +12,7 @@
         %th Email
         %th 
           %a{:href => "/admin?sort=timestamp"}Date Submitted
+        %th Province
     %tbody
       - submissions.each do |submission|
         %tr
@@ -23,3 +24,5 @@
           %td= submission['phone']
           %td= submission['email']
           %td= submission['timestamp'].year.to_s + "/" + submission['timestamp'].month.to_s + "/" + submission['timestamp'].day.to_s + " " + submission['timestamp'].hour.to_s + ":" + submission['timestamp'].min.to_s
+          %td= submission['province']
+
