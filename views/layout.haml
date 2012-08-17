@@ -38,8 +38,8 @@
 
             .disclaimer.clear
               #disclaimer-description
-                %p= t.i_agree_to_allow_
                 %p.hint= t.required_fields
+                %p= t.i_agree_to_allow_
               #agree-check-container
                 %input.agree#agree-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check"}
                 %a{:href => "/doc/PermissionIsRequired#{settings.language_suffix}.pdf", :target => '_blank'}= t.user_permission_release
