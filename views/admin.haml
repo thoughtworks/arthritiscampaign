@@ -5,21 +5,19 @@
       %tr
         %th Photo
         %th
-          - if params["sort"]=="first_name"
-            * 
           %a{:href => "/admin?sort=first_name"}First Name
-        %th
-          - if params["sort"]=="last_name"
-            * 
+          - if params["sort"]=="first_name"
+            *
+        %th 
           %a{:href => "/admin?sort=last_name"}Last Name
-          
+          - if params["sort"]=="last_name"
+            *
         %th Phone Number
         %th Email
-        %th
-          - if params["sort"]=="timestamp"
-            * 
+        %th 
           %a{:href => "/admin?sort=timestamp"}Date Submitted
-          
+          - if params["sort"]=="timestamp" or !params["sort"]
+            *
         %th Province
     %tbody
       - submissions.each do |submission|
@@ -31,6 +29,6 @@
           %td= submission['last_name']
           %td= submission['phone']
           %td= submission['email']
-          %td= submission['timestamp'].year.to_s + "/" + submission['timestamp'].month.to_s + "/" + submission['timestamp'].day.to_s + " " + submission['timestamp'].hour.to_s + ":" + submission['timestamp'].min.to_s
+          %td= submission['timestamp'].year.to_s + "/" + submission['timestamp'].month.to_s + "/" + submission['timestamp'].day.to_s + " " + "%02d" % submission['timestamp'].hour + ":" + "%02d" % submission['timestamp'].min
           %td= submission['province']
 
