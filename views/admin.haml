@@ -4,10 +4,14 @@
     %thead
       %tr
         %th Photo
-        %th First Name
-        %th Last Name
+        %th 
+          %a{:href => "/admin?sort=first_name"}First Name
+        %th 
+          %a{:href => "/admin?sort=last_name"}Last Name
         %th Phone Number
         %th Email
+        %th 
+          %a{:href => "/admin?sort=timestamp"}Date Submitted
     %tbody
       - submissions.each do |submission|
         %tr
@@ -18,3 +22,4 @@
           %td= submission['last_name']
           %td= submission['phone']
           %td= submission['email']
+          %td= submission['timestamp'].year.to_s + "/" + submission['timestamp'].month.to_s + "/" + submission['timestamp'].day.to_s + " " + submission['timestamp'].hour.to_s + ":" + submission['timestamp'].min.to_s

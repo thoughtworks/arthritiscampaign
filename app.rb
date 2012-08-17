@@ -74,7 +74,7 @@ get '/authenticate' do
 end
 
 get '/admin' , :auth => :admin do
-  submissions = Repository.submissions
+  submissions = Repository.submissions_sorted(params['sort'])
   submissions.each do |submission|
     submission['photo_url'] = flickr.photo_url(submission['photo_id'])
     submission['photo_thumbnail_url'] = flickr.photo_thumbnail_url(submission['photo_id'])

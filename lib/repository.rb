@@ -22,6 +22,10 @@ class Repository
       db["submissions"].find.map { |item| item }
     end
 
+    def submissions_sorted(sortby="timestamp")
+      db["submissions"].find({}, :sort => sortby).map { |item| item }
+    end
+
     def save_submission(submission)
       save_entity("submissions", submission)
     end
