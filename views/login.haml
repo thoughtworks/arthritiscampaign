@@ -4,7 +4,7 @@
     .alert.alert-error= session[:error]
 
 %form{ :action => "/authenticate", :method => "get"}
-  %lable Your password:
+  %label Your password:
   %input{:type => 'password', :name => 'password'}
   %br
   %input.btn.btn-primary.btn-large{:type => 'submit', :value => 'Submit'}

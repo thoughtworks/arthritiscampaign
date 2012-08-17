@@ -111,8 +111,7 @@ end
 get '/share/facebook/:photo_id' do
   callback_url = facebook_callback_url(params[:photo_id])
   session[:fb_message] = params[:message]
-  puts "######## call back url ##################"
-  puts callback_url
+  puts "*** call back url #{callback_url}"
   redirect facebook.authorization_url(callback_url)
 end
 
@@ -121,7 +120,7 @@ get '/share/facebook/message/:photo_id' do
 end
 
 get '/callback/facebook/:photo_id' do
-  puts "############after callback  #{settings.language} ############# "
+  puts "******after callback  #{settings.language} ***"
   photo = flickr.photo_url(params[:photo_id])
   callback_url = facebook_callback_url(params[:photo_id])
   facebook.share_photo(photo, session[:fb_message], params[:code], callback_url)
