@@ -4,14 +4,22 @@
     %thead
       %tr
         %th Photo
-        %th 
+        %th
+          - if params["sort"]=="first_name"
+            * 
           %a{:href => "/admin?sort=first_name"}First Name
-        %th 
+        %th
+          - if params["sort"]=="last_name"
+            * 
           %a{:href => "/admin?sort=last_name"}Last Name
+          
         %th Phone Number
         %th Email
-        %th 
+        %th
+          - if params["sort"]=="timestamp"
+            * 
           %a{:href => "/admin?sort=timestamp"}Date Submitted
+          
         %th Province
     %tbody
       - submissions.each do |submission|
