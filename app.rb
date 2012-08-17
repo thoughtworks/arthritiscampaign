@@ -100,7 +100,8 @@ post '/upload' do
 
   flickr.add_to_set photo_id
   Repository.save_submission({:first_name=> params[:first_name], :last_name=> params[:last_name],
-  :phone=> params[:phone], :email=> params[:email], :photo_id=> photo_id, :timestamp => Time.new})
+  :phone=> params[:phone], :email=> params[:email],
+  :province => params[:province], :photo_id=> photo_id, :timestamp => Time.new})
   redirect "/show/#{photo_id}?language=#{settings.language}"
 end
 

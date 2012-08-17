@@ -8,6 +8,7 @@
         %th Last Name
         %th Phone Number
         %th Email
+        %th Province
     %tbody
       - submissions.each do |submission|
         %tr
@@ -18,3 +19,4 @@
           %td= submission['last_name']
           %td= submission['phone']
           %td= submission['email']
+          %td= submission['province']

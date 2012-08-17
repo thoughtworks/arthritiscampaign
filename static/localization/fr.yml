@@ -41,4 +41,18 @@ text:
   invalid_phone_number: "NEED FR Phone number is not valid."
   invalid_first_name: "NEED FR First name must not be empty."
   invalid_last_name: "NEED FR Last name must not be empty."
+  alberta: "Alberta"
+  british_columbia: "Colombie britannique"
+  manitoba: "Manitoba"
+  new_brunswick: "Nouveau-Brunswick"
+  newfoundland_labrador: "Terre-Neuve et Labrador"
+  northwest_territories: "(territoires du) Nord-Ouest"
+  novq_scotia: "Nouvelle-Écosse"
+  nunavut: "Nunavut"
+  ontario: "Ontario"
+  pei: "'île du Prince-Édouard"
+  quebec: "Québec"
+  saskatchewan: "Saskatchewan"
+  yukon: "(territoire du) Yukon"
+
 formats:
