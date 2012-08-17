@@ -71,31 +71,45 @@
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', 'UA-32486270-1']);
       _gaq.push(['_trackPageview']);
+
       (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
        
-      //slide show
-      flickrshow('flickr-ss', { user: "#{settings.flickr_user_id}", tags: "#{settings.campaign}", autoplay: true, license: '' }); 
-
-      //google map setup
-      var myLatlng = new google.maps.LatLng(43,-79);
-      var myOptions = {
-        zoom: 4,
-        center: myLatlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-      var georssLayer = new google.maps.KmlLayer('http://api.flickr.com/services/feeds/geo/?id=#{settings.flickr_user_id}&lang=en-us&format=feed-georss');
-      georssLayer.setMap(map);
-
+     
       $(document).ready(function() {
-          $(".agree").change(function(){
-          if($("#agree-check:checked").length && $("#agree-contest-check:checked").length)
-            $("#upload-photo").removeAttr("disabled");
-          else
-            $("#upload-photo").attr("disabled", "disabled");
+        var _current_photo_id = "";
+        //slide show
+        flickrshow('flickr-ss', { user: "#{settings.flickr_user_id}",
+            onMove: function(img){
+              _current_photo_id = $(img.outerHTML).attr('data-flickr-photo_id');
+            },
+            tags: "#{settings.campaign}", autoplay: true, license: '' }
+            ); 
+    
+        //google map setup
+        var myLatlng = new google.maps.LatLng(43,-79);
+        var myOptions = {
+          zoom: 4,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+        var georssLayer = new google.maps.KmlLayer('http://api.flickr.com/services/feeds/geo/?id=#{settings.flickr_user_id}&lang=en-us&format=feed-georss');
+        georssLayer.setMap(map);
+ 
+        $(".agree").change(function(){
+        if($("#agree-check:checked").length && $("#agree-contest-check:checked").length)
+          $("#upload-photo").removeAttr("disabled");
+        else
+          $("#upload-photo").attr("disabled", "disabled");
         });
+
+        $("#flickr-ss").click(function(){
+        if(_current_photo_id != "")
+           window.open("http://www.flickr.com/photos/#{settings.flickr_user_id}/" + _current_photo_id,"myNewWin","width=900,height=600,toolbar=0,location=0");
+        });
+
       });
