@@ -48,7 +48,7 @@
                 %p= t.i_agree_to_contest_
               .agree-check-container
                 %input.agree#agree-contest-check{ :type => 'checkbox', :value => 'yes', :name => "agree-check-contest"}
-                %a{:href => "", :target => '_blank'}= t.contest_document_link
+                %a{:href => "/doc/PhotoContestRules#{settings.language_suffix}.pdf", :target => '_blank'}= t.contest_document_link
                 %center.clear
                   %button.btn.btn-large.btn-primary#upload-photo{:disabled => 'disabled' }= t.upload_your_photo
         #right-side-header
