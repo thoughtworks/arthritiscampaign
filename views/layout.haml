@@ -86,7 +86,7 @@
             onMove: function(img){
               _current_photo_id = $(img.outerHTML).attr('data-flickr-photo_id');
               $(img).click(function() { 
-                window.open("http://www.flickr.com/photos/80078420@N07/" + _current_photo_id,"myNewWin","width=900,height=600,toolbar=0,location=0");
+                window.open("http://www.flickr.com/photos/" + #{settings.flickr_user_id} +  "/" + _current_photo_id,"myNewWin","width=900,height=600,toolbar=0,location=0");
               });
             },
             tags: "#{settings.campaign}", autoplay: true, license: '' }
