@@ -23,7 +23,7 @@
       - submissions.each do |submission|
         %tr
           %td
-            %a{:href => submission['photo_url']}
+            %a{:href => submission['photo_url'], :target => "_blank"}
               %img{:src => submission['photo_thumbnail_url']}
           %td= submission['first_name']
           %td= submission['last_name']

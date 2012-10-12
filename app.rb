@@ -76,8 +76,9 @@ end
 get '/admin' , :auth => :admin do
   submissions = Repository.submissions_sorted(params['sort'])
   submissions.each do |submission|
-    submission['photo_url'] = flickr.photo_url(submission['photo_id'])
-    submission['photo_thumbnail_url'] = flickr.photo_thumbnail_url(submission['photo_id'])
+    photo_url = "http://www.flickr.com/photos/#{settings.flickr_user_id}/#{submission['photo_id']}"
+    #submission['photo_url'] = flickr.photo_url(submission['photo_id'])
+    #submission['photo_thumbnail_url'] = flickr.photo_thumbnail_url(submission['photo_id'])
   end
   haml :admin, :locals => { :submissions => submissions}, :layout => :simple_layout
 end
