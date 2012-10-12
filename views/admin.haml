@@ -23,8 +23,8 @@
       - submissions.each do |submission|
         %tr
           %td
-            %a{:href => submission['photo_url'], :target => "_blank"}
-              %img{:src => submission['photo_thumbnail_url']}
+            %a.photoBigUrl{:href => submission['photo_url'], :target => "_blank"}
+              %img.thumbnail{:src => submission['photo_thumbnail_url'], :photo_id => submission['photo_id']}
           %td= submission['first_name']
           %td= submission['last_name']
           %td= submission['phone']
@@ -32,3 +32,17 @@
           %td= submission['timestamp'].year.to_s + "/" + submission['timestamp'].month.to_s + "/" + submission['timestamp'].day.to_s + " " + "%02d" % submission['timestamp'].hour + ":" + "%02d" % submission['timestamp'].min
           %td= submission['province']
 
+:javascript
+  $(document).ready(function() {
+    $("img.thumbnail").each(function(){
+       var imgElement = $(this);
+       var photo_id = imgElement.attr('photo_id');
+       var flickrUrl ="http://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=#{settings.flickr_api_key}&photo_id="+ photo_id + "&format=json&nojsoncallback=1";
+      $.getJSON(flickrUrl, function(data){
+          for(i=0; i < data.sizes.size.length; i++){
+            if(data.sizes.size[i].label == "Thumbnail")
+              imgElement.attr("src", data.sizes.size[i].source);
+          }
+        });
+    });
+  });
